@@ -23,7 +23,7 @@ assets/img/           ← logo, favicon and project screenshots
 
 **Contact section / footer:** modelled on Heliot Emil's footer. The inline form sits on the right; the DROPLAB / STUDIO lock-up shows the visitor's cursor position (x down the left, y down the right, set in `main.js`); the three-column footer links live in the `<footer>`.
 
-**Contact form:** both the inline form and the glass pop-up submit to (`https://formspree.io/f/xqavakkv`), the same form the Shopify site used, and arrive in that Formspree account's inbox. In Formspree's settings, add the new domain if domain restrictions are on.
+**Contact form:** both the inline form and the glass pop-up submit to Formspree (`https://formspree.io/f/xqavakkv`), the same form the Shopify site used, and arrive in that Formspree account's inbox. In Formspree's settings, add the new domain if domain restrictions are on.
 
 ## Preview locally
 
