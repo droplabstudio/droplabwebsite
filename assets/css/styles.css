@@ -263,15 +263,8 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 
 /* ---------- Contact ---------- */
 .contact__lead { color: var(--mid); font-size: 15px; }
-.contact__big { list-style: none; margin: 8px 0 0; padding: 0; display: grid; justify-items: start; }
-.contact__big a, .contact__big button {
-  display: inline-block; padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer;
-  font: 400 clamp(30px, 5.4vw, 84px)/1.04 var(--font); letter-spacing: -0.05em;
-  background: linear-gradient(var(--ink), var(--ink)) 0 100% / 0 1px no-repeat;
-  transition: background-size .6s var(--ease);
-}
-.contact__big a:hover, .contact__big button:hover { background-size: 100% 2px; }
-.contact__mail { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+.contact__actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 18px; }
+.contact__mail { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
 .contact__mail span { color: var(--mid); }
 .contact__mail a { text-transform: none; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
 .contact__mail a:hover { text-decoration: none; }
