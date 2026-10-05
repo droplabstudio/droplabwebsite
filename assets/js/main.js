@@ -20,6 +20,19 @@
 
   // start on the next frame so the hidden state paints first
   requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
+
+  // the rest of the page fades in after the hero text (or right away if the visitor scrolls)
+  const FADE = 0.7; // hero text fade length (s); matches CSS
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveal = () => {
+    document.documentElement.classList.add('intro-complete');
+    window.removeEventListener('scroll', reveal);
+  };
+  if (reduce) reveal();
+  else {
+    setTimeout(reveal, (textDelay + FADE) * 1000);
+    window.addEventListener('scroll', reveal, { passive: true });
+  }
 })();
 
 /* ----------------------------------------------------------

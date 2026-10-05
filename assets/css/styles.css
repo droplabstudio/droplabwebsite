@@ -136,6 +136,11 @@ button { font: inherit; color: inherit; }
 .hero.is-in .irow::before, .hero.is-in .irow::after,
 .intro-done .hero .irow::before, .intro-done .hero .irow::after { transform: none; }
 
+/* everything below the hero waits for the intro, then fades in */
+.js main > section:not(.hero), .js .foot { opacity: 0; transition: opacity .7s linear; }
+.intro-complete main > section:not(.hero), .intro-complete .foot,
+.intro-done main > section:not(.hero), .intro-done .foot { opacity: 1; }
+
 /* header nav stays tucked away while the hero index is on screen; the brand is always visible */
 .top__nav { transition: opacity .4s var(--ease), transform .4s var(--ease); }
 .js .top.is-tucked .top__nav { opacity: 0; transform: translateY(-6px); pointer-events: none; }
