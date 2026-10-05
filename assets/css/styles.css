@@ -97,8 +97,7 @@ button { font: inherit; color: inherit; }
   padding: calc(var(--pad) + 1.18em + clamp(40px, 9vh, 110px)) var(--pad) var(--pad);
   display: flex; flex-direction: column;
 }
-/* hero and the About / Contact rows share one look */
-.hero, .index {
+.hero {
   --rule: #8c8c88;
   --text: #7a7a76;
   font-family: var(--mono);
@@ -126,31 +125,6 @@ button { font: inherit; color: inherit; }
 .irow__items button { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; text-transform: inherit; color: inherit; letter-spacing: inherit; }
 .irow a, .irow button { transition: color .2s; }
 .irow a:hover, .irow button:hover { color: var(--ink); }
-
-/* index rows used in About / Contact */
-.index { display: grid; }
-.index .irow__items p { text-transform: none; color: #666662; max-width: 46ch; }
-.index .irow__items--stack { display: grid; gap: 1.4em; }
-.index .irow__items--stack li { display: grid; gap: .45em; }
-.index .irow__items--stack li > span { color: var(--text); }
-.irow__note { color: #a5a5a0; }
-.irow__plain { text-transform: none; }
-
-.index .faq { display: grid; }
-.index .faq details + details { margin-top: .55em; }
-.index .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1em; transition: color .2s; }
-.index .faq summary::-webkit-details-marker { display: none; }
-.index .faq summary::after { content: "+"; flex-shrink: 0; }
-.index .faq details[open] summary::after { content: "–"; }
-.index .faq summary:hover, .index .faq details[open] summary { color: var(--ink); }
-.index .faq details p { padding: .6em 0 .8em; }
-
-/* rows below the hero: rule draws when scrolled to, then text fades in */
-.js .index .irow::before { transform: scaleX(0); transition: transform .733s linear; }
-.js .index .irow::after { transform: scaleX(0); transition: transform .2s linear; }
-.js .index .irow > * { opacity: 0; transition: opacity .467s linear .8s; }
-.js .index .irow.is-drawn::before, .js .index .irow.is-drawn::after { transform: none; }
-.js .index .irow.is-drawn > * { opacity: 1; }
 
 /* ---------- Intro sequence ----------
    Pure CSS on one clock from the first frame, so the order can't drift:
@@ -189,12 +163,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .row-label h2 { font-size: inherit; }
 .row-label span { color: var(--mid); }
 
-/* ---------- Focus ---------- */
-.focus__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
-.focus__item { grid-column: span 4; display: grid; gap: 10px; align-content: start; }
-.focus__item h3 { color: var(--ink); }
-.focus__item p { color: #555; max-width: 38ch; }
-
 /* ---------- Work ---------- */
 .work__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); }
 .work__index { grid-column: 1 / span 3; }
@@ -231,6 +199,22 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .info__row a:hover { text-decoration: none; }
 .info__note { margin-top: 6px; font-size: 13px; color: #555; }
 .info__note > :last-child { max-width: 52ch; }
+
+/* text-only blocks (Focus, About, Contact) reuse the Work layout */
+.work__list--text { gap: clamp(70px, 14vh, 160px); }
+.project--text .info { margin-top: 0; }
+.project--text .info__row + .info__row.mono { margin-top: 2px; }
+.project--text .info__note + .info__row.mono { margin-top: 14px; }
+.info__row button { justify-self: start; background: none; border: 0; padding: 0; font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.info__row button:hover { text-decoration: none; }
+.info__row .lower { text-transform: none; }
+.qa summary { list-style: none; cursor: pointer; padding: 3px 0; }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary > :last-child::after { content: "  +"; color: var(--mid); white-space: pre; }
+.qa[open] summary > :last-child::after { content: "  –"; }
+.qa summary:hover > :last-child { color: #000; }
+.qa .info__note { margin: 4px 0 12px; }
+.contact__aside { grid-column: 1 / span 4; color: var(--ink); }
 
 /* ---------- Footer ---------- */
 .foot {
@@ -314,7 +298,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .form__status.is-err { color: #c0392b; }
 
 /* ---------- Reveal ---------- */
-.js .focus__item, .js .project {
+.js .project {
   opacity: 0; transform: translateY(16px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
@@ -329,17 +313,13 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .info__head { display: none; }
   .info { margin-top: 10px; }
   .project__frame, .info { grid-column: 2 / -1; }
-  .focus__item { grid-column: 1 / -1; }
-  .focus__grid { row-gap: 28px; }
+  .project--text:not([id]) .info { grid-column: 1 / -1; }
+  .contact__aside { grid-column: 1 / -1; margin-bottom: 28px; }
 
 }
 
 @media (max-width: 640px) {
-  .hero, .index { font-size: 13px; }
-  .hero { min-height: 0; }
-  /* About / Contact rows stack: label on top, content full width */
-  .index .irow { grid-template-columns: minmax(0, 1fr); row-gap: 14px; }
-  .index .irow__label, .index .irow__items { grid-column: 1; }
+  .hero { font-size: 13px; min-height: 0; }
   main > .focus { padding-top: 56px; }
   .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .irow__label { grid-column: 1; }
@@ -355,5 +335,5 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
-  .js .focus__item, .js .project { opacity: 1; transform: none; }
+  .js .project { opacity: 1; transform: none; }
 }

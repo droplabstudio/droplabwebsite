@@ -12,28 +12,28 @@
 })();
 
 /* ----------------------------------------------------------
-   Work index: highlight the project in view
+   Section indexes (Focus, Work, About): highlight the item in view
    ---------------------------------------------------------- */
 (() => {
-  const links = [...document.querySelectorAll('.work__index a')];
-  if (!links.length || !('IntersectionObserver' in window)) return;
-  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      links.forEach((a) => a.classList.remove('is-active'));
-      const link = byId.get(entry.target.id);
-      if (link) link.classList.add('is-active');
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('.project').forEach((p) => io.observe(p));
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.work__index').forEach((index) => {
+    const links = [...index.querySelectorAll('a')];
+    const targets = links.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach((t) => io.observe(t));
+  });
 })();
 
 /* ----------------------------------------------------------
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.focus__item, .project');
+  const els = document.querySelectorAll('.project');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -41,20 +41,6 @@
     });
   }, { rootMargin: '0px 0px -6% 0px' });
   els.forEach((el) => io.observe(el));
-})();
-
-/* ----------------------------------------------------------
-   About / Contact rows: rule draws across, then text fades in
-   ---------------------------------------------------------- */
-(() => {
-  const rows = document.querySelectorAll('.index .irow');
-  if (!('IntersectionObserver' in window)) { rows.forEach((r) => r.classList.add('is-drawn')); return; }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-drawn'); io.unobserve(entry.target); }
-    });
-  }, { rootMargin: '0px 0px -12% 0px' });
-  rows.forEach((r) => io.observe(r));
 })();
 
 /* ----------------------------------------------------------

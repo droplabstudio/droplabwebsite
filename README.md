@@ -5,7 +5,7 @@ The portfolio site for [Droplab Studio](https://droplabstudio.com). It's plain H
 ## Files
 
 ```
-index.html            ← all page content, in order: hero, focus, work, about (studio, services, principles, words, FAQ), contact. About and Contact use the same `irow` rows as the hero.
+index.html            ← all page content, in order: hero, focus, work, about (studio, services, principles, words, FAQ), contact. Focus, About and Contact reuse the Work layout (`work__index` on the left, `project--text` blocks with `info` rows on the right); only the hero uses the ruled `irow` rows.
 assets/css/styles.css ← all styling; colors and fonts are at the top under :root
 assets/js/main.js     ← intro sequence, project index, contact panel, scroll effects
 assets/img/           ← logo, favicon and project screenshots
