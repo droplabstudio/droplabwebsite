@@ -263,7 +263,9 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 
 /* ---------- Contact ---------- */
 .contact__lead { color: var(--mid); font-size: 15px; }
-.contact__actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 18px; }
+.contact__actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; margin-top: 18px; }
+.contact__msg { display: grid; gap: 6px; justify-items: start; }
+.contact__note { font-size: 12px; color: var(--mid); }
 .contact__mail { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
 .contact__mail span { color: var(--mid); }
 .contact__mail a { text-transform: none; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
