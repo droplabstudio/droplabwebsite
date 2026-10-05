@@ -120,8 +120,7 @@ button { font: inherit; color: inherit; }
 }
 .irow::before { right: 0; height: 1px; }
 .irow::after { width: calc((100% - 11 * var(--gap)) / 12 + var(--gap) + 2em); height: 4px; top: -2px; }
-.irow__n { grid-column: 1; }
-.irow__label { grid-column: 2 / span 4; justify-self: start; }
+.irow__label { grid-column: 1 / span 5; justify-self: start; }
 .irow__items { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; }
 .irow__items button { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; text-transform: inherit; color: inherit; letter-spacing: inherit; }
 .irow a, .irow button { transition: color .2s; }
@@ -362,9 +361,9 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 
 @media (max-width: 640px) {
   .hero { font-size: 13px; }
-  .irow { grid-template-columns: 2.2em minmax(0, 1fr) minmax(0, 1.6fr); }
-  .irow__label { grid-column: 2; }
-  .irow__items { grid-column: 3; }
+  .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
+  .irow__label { grid-column: 1; }
+  .irow__items { grid-column: 2; }
   .irow::after { width: 4.5em; }
   .top__brand { grid-column: 1 / span 6; }
   .top__nav { grid-column: 7 / -1; }

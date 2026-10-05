@@ -13,7 +13,7 @@
   hero.querySelectorAll('.irow').forEach((row, i) => {
     const base = 0.55 + i * 0.14;
     row.style.setProperty('--ld', base.toFixed(2) + 's');
-    row.querySelectorAll('.irow__n .sweep, .irow__label .sweep').forEach((el) => {
+    row.querySelectorAll('.irow__label .sweep').forEach((el) => {
       el.style.setProperty('--d', (base + 0.45).toFixed(2) + 's');
     });
     row.querySelectorAll('.irow__items .sweep').forEach((el, j) => {
