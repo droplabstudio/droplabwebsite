@@ -1,25 +1,22 @@
 // Droplab Studio — interactions. The page still works without JS.
 
 /* ----------------------------------------------------------
-   Hero intro: name, then rules draw left → right, then text sweeps in
+   Hero intro: rules draw left → right, then all text fades in
    ---------------------------------------------------------- */
 (() => {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
-  const title = hero.querySelector('.hero__title .sweep');
-  if (title) title.style.setProperty('--d', '0.3s');
+  const START = 0.3;   // first rule starts drawing (s)
+  const STAGGER = 0.14; // gap between rules (s)
+  const DRAW = 1.1;    // time for one rule to cross the page (s); matches CSS
 
-  hero.querySelectorAll('.irow').forEach((row, i) => {
-    const base = 0.55 + i * 0.14;
-    row.style.setProperty('--ld', base.toFixed(2) + 's');
-    row.querySelectorAll('.irow__label .sweep').forEach((el) => {
-      el.style.setProperty('--d', (base + 0.45).toFixed(2) + 's');
-    });
-    row.querySelectorAll('.irow__items .sweep').forEach((el, j) => {
-      el.style.setProperty('--d', (base + 0.55 + j * 0.05).toFixed(2) + 's');
-    });
-  });
+  const rows = hero.querySelectorAll('.irow');
+  rows.forEach((row, i) => row.style.setProperty('--ld', (START + i * STAGGER).toFixed(2) + 's'));
+
+  // text fades in once the last rule is fully drawn
+  const textDelay = START + (rows.length - 1) * STAGGER + DRAW + 0.1;
+  hero.style.setProperty('--d', textDelay.toFixed(2) + 's');
 
   // start on the next frame so the hidden state paints first
   requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
