@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261005f">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005g">
   <script>
     document.documentElement.classList.add('js');
     // deep links to a section (like /#work) skip the intro wait
@@ -329,28 +329,58 @@
         <h2 id="contact-title">Contact</h2>
       </div>
 
-      <div class="work__grid">
-        <p class="contact__aside mono">Want the most out of your brand?</p>
+      <div class="cx">
+        <form class="cx__form" action="https://formspree.io/f/xqavakkv" method="POST">
+          <p class="cx__title mono">Message</p>
+          <p class="cx__intro">Want the most out of your brand? Tell us about your store and we'll get back to you within 24 hours.</p>
+          <label class="cx__field"><span class="mono">Name</span><input type="text" name="name" required autocomplete="name"></label>
+          <label class="cx__field"><span class="mono">Email</span><input type="email" name="email" required autocomplete="email"></label>
+          <label class="cx__field"><span class="mono">Brand</span><input type="text" name="brand" placeholder="Optional" autocomplete="organization"></label>
+          <label class="cx__field cx__field--area"><span class="mono">Message</span><textarea name="message" rows="3" required></textarea></label>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="cx__actions">
+            <button class="cx__send mono form__send" type="submit">Send</button>
+            <p class="form__status mono" role="status" aria-live="polite"></p>
+          </div>
+        </form>
 
-        <div class="work__list work__list--text">
-          <article class="project project--text">
-            <div class="info">
-              <p class="info__row mono"><span>Message</span><button type="button" data-open-contact>Send a message →</button></p>
-              <p class="info__row mono"><span>Reply</span><span>Within 24 hours</span></p>
-              <p class="info__row mono"><span>Call</span><a href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call&nbsp;↗</a></p>
-              <p class="info__row mono"><span>Email</span><a class="lower" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a></p>
-              <p class="info__row mono"><span>Instagram</span><a class="lower" href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">@droplab_studio&nbsp;↗</a></p>
-            </div>
-          </article>
+        <!-- lock-up: the numbers are the visitor's cursor position (x on the left, y on the right) -->
+        <div class="lockup mono" aria-hidden="true">
+          <span data-lock="x1">00</span><span>Droplab</span><span data-lock="y1">00</span>
+          <span data-lock="x2">00</span><span>Studio</span><span data-lock="y2">00</span>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="foot mono">
-    <span>© <span id="year">2026</span> Droplab Studio</span>
-    <span>Shopify design &amp; development</span>
-    <a href="#top">Top ↑</a>
+    <div class="foot__col">
+      <h3 class="foot__title">Studio</h3>
+      <nav class="foot__links" aria-label="Studio">
+        <a href="#focus">Focus</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+    </div>
+    <div class="foot__col">
+      <h3 class="foot__title">Information</h3>
+      <nav class="foot__links" aria-label="Information">
+        <a href="#services">Services</a>
+        <a href="#principles">Principles</a>
+        <a href="#words">Words</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <div class="foot__col">
+      <h3 class="foot__title">Contact</h3>
+      <nav class="foot__links" aria-label="Contact">
+        <a href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
+        <a class="lower" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a>
+        <a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a>
+      </nav>
+      <p class="foot__base">© <span id="year">2026</span> Droplab Studio</p>
+    </div>
   </footer>
 
   <!-- Floating glass panels -->
@@ -384,6 +414,6 @@
     </form>
   </div>
 
-  <script src="assets/js/main.js?v=20261005f" defer></script>
+  <script src="assets/js/main.js?v=20261005g" defer></script>
 </body>
 </html>
