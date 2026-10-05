@@ -33,7 +33,7 @@
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.focus__item, .project, .statement, .principles li, .words figure');
+  const els = document.querySelectorAll('.focus__item, .project');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -41,6 +41,20 @@
     });
   }, { rootMargin: '0px 0px -6% 0px' });
   els.forEach((el) => io.observe(el));
+})();
+
+/* ----------------------------------------------------------
+   About / Contact rows: rule draws across, then text fades in
+   ---------------------------------------------------------- */
+(() => {
+  const rows = document.querySelectorAll('.index .irow');
+  if (!('IntersectionObserver' in window)) { rows.forEach((r) => r.classList.add('is-drawn')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-drawn'); io.unobserve(entry.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  rows.forEach((r) => io.observe(r));
 })();
 
 /* ----------------------------------------------------------
@@ -119,7 +133,7 @@
     entries.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target)));
     dock.classList.toggle('is-away', hidden.size > 0);
   }, { threshold: 0.15 });
-  document.querySelectorAll('.hero, .contact').forEach((el) => io.observe(el));
+  document.querySelectorAll('.hero, .about, .contact').forEach((el) => io.observe(el));
 })();
 
 /* Footer year */

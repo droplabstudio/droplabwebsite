@@ -96,6 +96,9 @@ button { font: inherit; color: inherit; }
   min-height: 100vh; min-height: 100svh;
   padding: calc(var(--pad) + 1.18em + clamp(40px, 9vh, 110px)) var(--pad) var(--pad);
   display: flex; flex-direction: column;
+}
+/* hero and the About / Contact rows share one look */
+.hero, .index {
   --rule: #8c8c88;
   --text: #7a7a76;
   font-family: var(--mono);
@@ -118,11 +121,36 @@ button { font: inherit; color: inherit; }
 }
 .irow::before { right: 0; height: 1px; }
 .irow::after { width: calc((100% - 11 * var(--gap)) / 12 + var(--gap) + 2em); height: 4px; top: -2px; }
-.irow__label { grid-column: 1 / span 5; justify-self: start; }
+.irow__label { grid-column: 1 / span 5; justify-self: start; font: inherit; }
 .irow__items { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; }
 .irow__items button { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; text-transform: inherit; color: inherit; letter-spacing: inherit; }
 .irow a, .irow button { transition: color .2s; }
 .irow a:hover, .irow button:hover { color: var(--ink); }
+
+/* index rows used in About / Contact */
+.index { display: grid; }
+.index .irow__items p { text-transform: none; color: #666662; max-width: 46ch; }
+.index .irow__items--stack { display: grid; gap: 1.4em; }
+.index .irow__items--stack li { display: grid; gap: .45em; }
+.index .irow__items--stack li > span { color: var(--text); }
+.irow__note { color: #a5a5a0; }
+.irow__plain { text-transform: none; }
+
+.index .faq { display: grid; }
+.index .faq details + details { margin-top: .55em; }
+.index .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1em; transition: color .2s; }
+.index .faq summary::-webkit-details-marker { display: none; }
+.index .faq summary::after { content: "+"; flex-shrink: 0; }
+.index .faq details[open] summary::after { content: "–"; }
+.index .faq summary:hover, .index .faq details[open] summary { color: var(--ink); }
+.index .faq details p { padding: .6em 0 .8em; }
+
+/* rows below the hero: rule draws when scrolled to, then text fades in */
+.js .index .irow::before { transform: scaleX(0); transition: transform .733s linear; }
+.js .index .irow::after { transform: scaleX(0); transition: transform .2s linear; }
+.js .index .irow > * { opacity: 0; transition: opacity .467s linear .8s; }
+.js .index .irow.is-drawn::before, .js .index .irow.is-drawn::after { transform: none; }
+.js .index .irow.is-drawn > * { opacity: 1; }
 
 /* ---------- Intro sequence ----------
    Pure CSS on one clock from the first frame, so the order can't drift:
@@ -203,70 +231,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .info__row a:hover { text-decoration: none; }
 .info__note { margin-top: 6px; font-size: 13px; color: #555; }
 .info__note > :last-child { max-width: 52ch; }
-
-/* ---------- Studio ---------- */
-.statement {
-  font-size: clamp(24px, 3.1vw, 46px);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  max-width: 22ch;
-  text-indent: 25%;
-}
-.studio__grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap);
-  margin-top: clamp(60px, 10vh, 120px);
-}
-.studio__block { grid-column: 1 / span 3; }
-.studio__block--wide { grid-column: 4 / -1; }
-.studio__block h3 { color: var(--mid); padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
-.list { list-style: none; margin: 0; padding: 0; }
-.list li { padding: 5px 0; border-bottom: 1px solid var(--line); }
-
-.principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
-.principles li { display: grid; gap: 6px; align-content: start; }
-.principles span { color: var(--mid); }
-.principles h4 { font-size: 14px; }
-.principles p { color: var(--mid); }
-
-/* ---------- Words ---------- */
-.words__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
-.words blockquote { font-size: 15px; line-height: 1.4; letter-spacing: -0.01em; max-width: 40ch; }
-.words figcaption { margin-top: 14px; color: var(--mid); }
-
-/* ---------- FAQ ---------- */
-.faq__list { display: grid; }
-.faq details { border-bottom: 1px solid var(--line); }
-.faq details:first-child { border-top: 1px solid var(--line); }
-.faq summary {
-  list-style: none; cursor: pointer;
-  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); align-items: baseline;
-  padding: 10px 0;
-  font-size: 15px;
-  position: relative;
-}
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 0; top: 10px; font-family: var(--mono); color: var(--mid); }
-.faq details[open] summary::after { content: "–"; }
-.faq__n { color: var(--mid); grid-column: 1 / span 3; }
-.faq__q { grid-column: 4 / -1; padding-right: 30px; }
-.faq summary:hover { color: #000; }
-.faq details p {
-  margin-left: calc((100% - 11 * var(--gap)) / 12 * 3 + 3 * var(--gap));
-  padding: 0 0 18px; max-width: 64ch; color: #555;
-}
-
-/* ---------- Contact ---------- */
-.contact__lead { color: var(--mid); font-size: 15px; }
-.contact__mail {
-  display: inline-block; margin-top: 6px;
-  font-size: clamp(30px, 6.2vw, 96px);
-  letter-spacing: -0.05em; line-height: 1;
-  overflow-wrap: anywhere;
-  background: linear-gradient(var(--ink), var(--ink)) 0 100% / 0 1px no-repeat;
-  transition: background-size .6s var(--ease);
-}
-.contact__mail:hover { background-size: 100% 2px; }
-.contact__actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 28px; }
 
 /* ---------- Footer ---------- */
 .foot {
@@ -350,7 +314,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .form__status.is-err { color: #c0392b; }
 
 /* ---------- Reveal ---------- */
-.js .focus__item, .js .project, .js .statement, .js .principles li, .js .words figure {
+.js .focus__item, .js .project {
   opacity: 0; transform: translateY(16px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
@@ -365,17 +329,17 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .info__head { display: none; }
   .info { margin-top: 10px; }
   .project__frame, .info { grid-column: 2 / -1; }
-  .studio__block, .studio__block--wide { grid-column: 1 / -1; }
-  .studio__block--wide { margin-top: 40px; }
-  .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-  .words__grid { grid-template-columns: 1fr; row-gap: 36px; }
   .focus__item { grid-column: 1 / -1; }
   .focus__grid { row-gap: 28px; }
 
 }
 
 @media (max-width: 640px) {
-  .hero { font-size: 13px; min-height: 0; }
+  .hero, .index { font-size: 13px; }
+  .hero { min-height: 0; }
+  /* About / Contact rows stack: label on top, content full width */
+  .index .irow { grid-template-columns: minmax(0, 1fr); row-gap: 14px; }
+  .index .irow__label, .index .irow__items { grid-column: 1; }
   main > .focus { padding-top: 56px; }
   .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .irow__label { grid-column: 1; }
@@ -384,11 +348,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .top__brand { grid-column: 1 / span 6; font-size: 13px; }
   .top__nav { grid-column: 7 / -1; }
   .top__nav a:not(.chip--dark) { display: none; }
-  .statement { text-indent: 0; }
-  .principles { grid-template-columns: 1fr; }
-  .faq summary { grid-template-columns: 1fr; gap: 2px; padding-right: 24px; }
-  .faq__n, .faq__q { grid-column: auto; }
-  .faq details p { margin-left: 0; }
   .foot { grid-template-columns: 1fr 1fr; }
   .foot span:nth-child(2) { display: none; }
 }
@@ -396,5 +355,5 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
-  .js .focus__item, .js .project, .js .statement, .js .principles li, .js .words figure { opacity: 1; transform: none; }
+  .js .focus__item, .js .project { opacity: 1; transform: none; }
 }
