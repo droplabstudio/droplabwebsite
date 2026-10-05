@@ -131,7 +131,7 @@ button { font: inherit; color: inherit; }
 .sweep { display: inline-block; }
 .js .hero .sweep {
   clip-path: inset(0 100% 0 0);
-  transition: clip-path .8s cubic-bezier(.65, 0, .25, 1) var(--d, 0s);
+  transition: clip-path .8s linear var(--d, 0s);
 }
 .js .hero .irow::before, .js .hero .irow::after { transform: scaleX(0); transition: transform 1.1s linear var(--ld, 0s); }
 .js .hero .irow::after { transition-duration: .3s; }
