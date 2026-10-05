@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261005j">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005k">
   <script>
     document.documentElement.classList.add('js');
     // deep links to a section (like /#work) skip the intro wait
@@ -305,12 +305,12 @@
         <span>Reply within 24h</span>
       </div>
       <p class="contact__lead">Want the most out of your brand?</p>
-      <a class="contact__mail" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a>
-      <div class="contact__actions">
-        <button class="chip chip--dark chip--lg" type="button" data-open-contact>Send a message</button>
-        <a class="chip chip--lg" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
-        <a class="chip chip--lg" href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a>
-      </div>
+      <ul class="contact__big">
+        <li><button type="button" data-open-contact>Send a message →</button></li>
+        <li><a href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a></li>
+        <li><a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a></li>
+      </ul>
+      <p class="contact__mail mono"><span>Email</span><a href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a></p>
     </section>
   </main>
 
@@ -347,10 +347,12 @@
       <label><span class="mono">Message *</span><textarea name="message" rows="4" required></textarea></label>
       <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="form__send mono" type="submit">Send</button>
+      <p class="form__or mono" aria-hidden="true">or</p>
+      <a class="form__call mono" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a call ↗</a>
       <p class="form__status mono" role="status" aria-live="polite"></p>
     </form>
   </div>
 
-  <script src="assets/js/main.js?v=20261005j" defer></script>
+  <script src="assets/js/main.js?v=20261005k" defer></script>
 </body>
 </html>
