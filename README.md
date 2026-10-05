@@ -7,17 +7,15 @@ The portfolio site for [Droplab Studio](https://droplabstudio.com). It's plain H
 ```
 index.html            ← all page content (projects, services, FAQ, contact)
 assets/css/styles.css ← all styling; colors and fonts are at the top under :root
-assets/js/main.js     ← ASCII drop animation, project index, contact panel
+assets/js/main.js     ← project index, contact panel, scroll effects
 assets/img/           ← logo, favicon and project screenshots
 ```
 
 ## Common edits
 
-**Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the link, image and spec details. Add a matching `<li>` to the project index (`.work__index`) using the same `id`. Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
+**Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the name, link and image. Add a matching `<li>` to the project index (`.work__index`) using the same `id`. Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
 
 **Change colors:** edit the variables at the top of `assets/css/styles.css`.
-
-**Hero animation:** the ASCII drop is drawn in `assets/js/main.js` (the "Hero" section). The `balls()` function sets the size and movement of each droplet.
 
 **Contact form:** submissions go to Formspree (`https://formspree.io/f/xqavakkv`), the same form the Shopify site used, and arrive in that Formspree account's inbox. In Formspree's settings, add the new domain if domain restrictions are on.
 

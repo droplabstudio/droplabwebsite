@@ -9,7 +9,6 @@
   --mid: #8c8c88;
   --faint: #c9c9c4;
   --line: rgba(17, 17, 17, 0.1);
-  --col-line: rgba(17, 17, 17, 0.045);
   --chip: #e4e4e1;
   --chip-hover: #d9d9d5;
 
@@ -52,15 +51,6 @@ button { font: inherit; color: inherit; }
 
 .skip { position: absolute; left: -999px; top: 8px; z-index: 100; background: var(--ink); color: var(--bg); padding: 6px 10px; }
 .skip:focus { left: 8px; }
-
-/* ---------- 12-column grid lines ---------- */
-.cols {
-  position: fixed; inset: 0; z-index: -1;
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap);
-  padding: 0 var(--pad);
-  pointer-events: none;
-}
-.cols span { border-left: 1px solid var(--col-line); border-right: 1px solid var(--col-line); }
 
 /* ---------- Chips ---------- */
 .chip {
@@ -136,19 +126,6 @@ main > .work { padding-top: clamp(96px, 18vh, 180px); }
   transition: transform 1.2s var(--ease);
 }
 .project__frame:hover img { transform: scale(1.025); }
-
-.spec {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px var(--gap);
-  margin-top: 12px;
-}
-.spec > div { display: grid; gap: 2px; align-content: start; min-width: 0; }
-.spec dt { color: var(--mid); }
-.spec dd { overflow-wrap: anywhere; }
-.spec__note, .spec__url { grid-column: 1 / -1; }
-.spec__url a { white-space: nowrap; }
-.spec__note dd { grid-column: 1 / -1; text-transform: none; font-family: var(--font); font-size: 13px; letter-spacing: 0; max-width: 62ch; }
-.spec a { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
-.spec a:hover { text-decoration: none; }
 
 /* ---------- Studio ---------- */
 .statement {
@@ -308,7 +285,7 @@ main > .work { padding-top: clamp(96px, 18vh, 180px); }
   .work__list { grid-column: 1 / -1; }
   .project { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 var(--gap); align-items: start; }
   .project__name { display: block; grid-column: 1; font-size: 11px; position: sticky; top: 64px; }
-  .project__frame, .project .spec { grid-column: 2 / -1; }
+  .project__frame { grid-column: 2 / -1; }
   .studio__block, .studio__block--wide { grid-column: 1 / -1; }
   .studio__block--wide { margin-top: 40px; }
   .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
@@ -317,8 +294,6 @@ main > .work { padding-top: clamp(96px, 18vh, 180px); }
 }
 
 @media (max-width: 640px) {
-  .cols { grid-template-columns: repeat(4, 1fr); }
-  .cols span:nth-child(n+5) { display: none; }
   .top__brand { grid-column: 1 / span 6; }
   .top__nav { grid-column: 7 / -1; }
   .top__nav a:not(.chip--dark) { display: none; }
