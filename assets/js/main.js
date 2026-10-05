@@ -21,17 +21,28 @@
   // start on the next frame so the hidden state paints first
   requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
 
-  // the rest of the page fades in after the hero text (or right away if the visitor scrolls)
+  // the rest of the page fades in after the hero text. Only real visitor input
+  // reveals it early: browsers also fire scroll events on their own (restoring
+  // the scroll position, mobile address bars), which shouldn't skip the intro.
   const FADE = 0.7; // hero text fade length (s); matches CSS
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const INPUTS = ['wheel', 'touchmove', 'keydown'];
   const reveal = () => {
     document.documentElement.classList.add('intro-complete');
-    window.removeEventListener('scroll', reveal);
+    INPUTS.forEach((type) => window.removeEventListener(type, reveal));
+    document.removeEventListener('click', onClick);
   };
-  if (reduce) reveal();
-  else {
+  const onClick = (e) => { if (e.target.closest('a[href^="#"], [data-open-contact]')) reveal(); };
+
+  if (reduce || location.hash) {
+    reveal(); // deep links like /#work go straight to their section
+  } else {
+    // always start at the top so the intro plays in order
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
     setTimeout(reveal, (textDelay + FADE) * 1000);
-    window.addEventListener('scroll', reveal, { passive: true });
+    INPUTS.forEach((type) => window.addEventListener(type, reveal, { passive: true }));
+    document.addEventListener('click', onClick);
   }
 })();
 
