@@ -44,7 +44,7 @@
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.project, .statement, .principles li, .words figure');
+  const els = document.querySelectorAll('.focus__item, .project, .statement, .principles li, .words figure');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

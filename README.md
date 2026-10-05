@@ -5,7 +5,7 @@ The portfolio site for [Droplab Studio](https://droplabstudio.com). It's plain H
 ## Files
 
 ```
-index.html            ← all page content (projects, services, FAQ, contact)
+index.html            ← all page content, in order: hero, focus, work, about (studio, words, FAQ), contact
 assets/css/styles.css ← all styling; colors and fonts are at the top under :root
 assets/js/main.js     ← intro sequence, project index, contact panel, scroll effects
 assets/img/           ← logo, favicon and project screenshots

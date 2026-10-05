@@ -151,6 +151,12 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .row-label h2 { font-size: inherit; }
 .row-label span { color: var(--mid); }
 
+/* ---------- Focus ---------- */
+.focus__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+.focus__item { grid-column: span 4; display: grid; gap: 10px; align-content: start; }
+.focus__item h3 { color: var(--ink); }
+.focus__item p { color: #555; max-width: 38ch; }
+
 /* ---------- Work ---------- */
 .work__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); }
 .work__index { grid-column: 1 / span 3; }
@@ -334,7 +340,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .form__status.is-err { color: #c0392b; }
 
 /* ---------- Reveal ---------- */
-.js .project, .js .statement, .js .principles li, .js .words figure {
+.js .focus__item, .js .project, .js .statement, .js .principles li, .js .words figure {
   opacity: 0; transform: translateY(16px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
@@ -353,12 +359,14 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .studio__block--wide { margin-top: 40px; }
   .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .words__grid { grid-template-columns: 1fr; row-gap: 36px; }
+  .focus__item { grid-column: 1 / -1; }
+  .focus__grid { row-gap: 28px; }
 
 }
 
 @media (max-width: 640px) {
   .hero { font-size: 13px; min-height: 0; }
-  main > .work { padding-top: 56px; }
+  main > .focus { padding-top: 56px; }
   .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .irow__label { grid-column: 1; }
   .irow__items { grid-column: 2; }
@@ -378,5 +386,5 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
-  .js .project, .js .statement, .js .principles li, .js .words figure { opacity: 1; transform: none; }
+  .js .focus__item, .js .project, .js .statement, .js .principles li, .js .words figure { opacity: 1; transform: none; }
 }
