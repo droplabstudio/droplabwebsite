@@ -126,22 +126,22 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Intro sequence ----------
    Pure CSS on one clock from the first frame, so the order can't drift:
-   0.15s–0.91s  row rules draw left → right (one every 0.07s, 0.55s each)
-   0.96s–1.31s  all hero text fades in
-   1.35s–1.70s  everything below the hero fades in
+   0.24s–1.46s  row rules draw left → right (one every 0.112s, 0.88s each)
+   1.54s–2.10s  all hero text fades in
+   2.16s–2.72s  everything below the hero fades in
    "both" keeps each element hidden until its turn. */
 @keyframes intro-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes intro-fade { from { opacity: 0; } to { opacity: 1; } }
 
 .sweep { display: inline-block; }
-.hero .irow::before { animation: intro-draw .55s linear var(--ld) both; }
-.hero .irow::after { animation: intro-draw .15s linear var(--ld) both; }
-.hero .irow:nth-child(1) { --ld: .15s; }
-.hero .irow:nth-child(2) { --ld: .22s; }
-.hero .irow:nth-child(3) { --ld: .29s; }
-.hero .irow:nth-child(4) { --ld: .36s; }
-.hero .sweep { animation: intro-fade .35s linear .96s both; }
-main > section:not(.hero), .foot { animation: intro-fade .35s linear 1.35s both; }
+.hero .irow::before { animation: intro-draw .88s linear var(--ld) both; }
+.hero .irow::after { animation: intro-draw .24s linear var(--ld) both; }
+.hero .irow:nth-child(1) { --ld: .24s; }
+.hero .irow:nth-child(2) { --ld: .352s; }
+.hero .irow:nth-child(3) { --ld: .464s; }
+.hero .irow:nth-child(4) { --ld: .576s; }
+.hero .sweep { animation: intro-fade .56s linear 1.536s both; }
+main > section:not(.hero), .foot { animation: intro-fade .56s linear 2.16s both; }
 
 /* deep links to a section (like /#work) skip the wait; set in <head> */
 .skip-intro main > section:not(.hero), .skip-intro .foot { animation: none; }
