@@ -357,7 +357,8 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 }
 
 @media (max-width: 640px) {
-  .hero { font-size: 13px; }
+  .hero { font-size: 13px; min-height: 0; }
+  main > .work { padding-top: 56px; }
   .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .irow__label { grid-column: 1; }
   .irow__items { grid-column: 2; }
