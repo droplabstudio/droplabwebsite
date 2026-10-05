@@ -94,24 +94,16 @@
 })();
 
 /* ----------------------------------------------------------
-   Header: tucked away over the hero index, glass once scrolled.
+   Header: glass once scrolled.
    Dock: hidden over the hero and contact sections.
    ---------------------------------------------------------- */
 (() => {
   const top = document.querySelector('.top');
   const dock = document.querySelector('.dock');
-  const hero = document.querySelector('.hero');
   const onScroll = () => top && top.classList.toggle('is-scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
   if (!('IntersectionObserver' in window)) return;
-
-  if (top && hero) {
-    top.classList.add('is-tucked');
-    new IntersectionObserver(([entry]) => {
-      top.classList.toggle('is-tucked', entry.isIntersecting);
-    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
-  }
 
   if (!dock) return;
   const hidden = new Set();

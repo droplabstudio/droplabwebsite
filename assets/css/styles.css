@@ -87,7 +87,7 @@ button { font: inherit; color: inherit; }
 .top__brand {
   grid-column: 1 / span 6; justify-self: start;
   font-family: var(--mono); font-size: clamp(14px, 1.45vw, 21px); line-height: 1.18;
-  text-transform: uppercase; color: var(--ink);
+  color: var(--ink);
 }
 .top__nav { grid-column: 7 / -1; display: flex; gap: 4px; justify-content: flex-end; }
 
@@ -146,9 +146,6 @@ main > section:not(.hero), .foot { animation: intro-fade .467s linear 1.8s both;
 /* deep links to a section (like /#work) skip the wait; set in <head> */
 .skip-intro main > section:not(.hero), .skip-intro .foot { animation: none; }
 
-/* header nav stays tucked away while the hero index is on screen; the brand is always visible */
-.top__nav { transition: opacity .4s var(--ease), transform .4s var(--ease); }
-.js .top.is-tucked .top__nav { opacity: 0; transform: translateY(-6px); pointer-events: none; }
 
 /* ---------- Shared section bits ---------- */
 main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
@@ -390,9 +387,10 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .irow__label { grid-column: 1; }
   .irow__items { grid-column: 2; }
   .irow::after { width: 4.5em; }
-  .top__brand { grid-column: 1 / span 6; font-size: 13px; }
-  .top__nav { grid-column: 7 / -1; }
-  .top__nav a:not(.chip--dark) { display: none; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .top__brand { font-size: 13px; white-space: nowrap; }
+  .top__nav { gap: 3px; flex-shrink: 0; }
+  .top__nav .chip { padding: 0 7px; }
   .statement { text-indent: 0; }
   .principles { grid-template-columns: 1fr; }
   .faq summary { grid-template-columns: 1fr; gap: 2px; padding-right: 24px; }
@@ -400,6 +398,17 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .faq details p { margin-left: 0; }
   .foot { grid-template-columns: 1fr 1fr; }
   .foot span:nth-child(2) { display: none; }
+}
+
+@media (max-width: 370px) {
+  .top { gap: 6px; }
+  .top__brand { font-size: 12px; }
+  .top__nav .chip { padding: 0 5px; font-size: 11px; }
+}
+@media (max-width: 330px) {
+  .top__brand { font-size: 11px; letter-spacing: -0.02em; }
+  .top__nav { gap: 2px; }
+  .top__nav .chip { padding: 0 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
