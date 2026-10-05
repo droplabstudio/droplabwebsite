@@ -34,11 +34,17 @@
   };
   const onClick = (e) => { if (e.target.closest('a[href^="#"], [data-open-contact]')) reveal(); };
 
-  if (reduce || location.hash) {
-    reveal(); // deep links like /#work go straight to their section
+  // a deep link to a section below the hero (like /#work) skips the intro;
+  // other hashes (#top, or anything a preview tool adds) still play it
+  let target = null;
+  try { target = location.hash && document.querySelector(location.hash); } catch (err) { target = null; }
+  const deepLink = target && !hero.contains(target) && target.closest('main') && target.id !== 'main';
+
+  if (reduce || deepLink) {
+    reveal();
   } else {
     // always start at the top so the intro plays in order
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (err) { /* sandboxed */ }
     window.scrollTo(0, 0);
     setTimeout(reveal, (textDelay + FADE) * 1000);
     INPUTS.forEach((type) => window.addEventListener(type, reveal, { passive: true }));
