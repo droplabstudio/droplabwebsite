@@ -1,44 +1,17 @@
 // Droplab Studio — interactions. The page still works without JS.
 
 /* ----------------------------------------------------------
-   Hero intro: lines draw left → right, then text sweeps in
+   Hero intro: name, then rules draw left → right, then text sweeps in
    ---------------------------------------------------------- */
 (() => {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
-  // stacked line block: each row is a set of [start%, end%] segments
-  const PATTERN = [
-    [[0, 100]],
-    [[0, 22], [26, 41], [44, 100]],
-    [[0, 9], [26, 41], [44, 70]],
-    [[0, 100]],
-    [[0, 22], [44, 100]],
-    [[0, 9], [26, 41], [44, 88]],
-    [[0, 100]],
-    [[0, 9], [44, 70]],
-  ];
-  const bars = hero.querySelector('.bars');
-  if (bars) {
-    PATTERN.forEach((segs, row) => {
-      const bar = document.createElement('div');
-      bar.className = 'bar';
-      segs.forEach(([a, b]) => {
-        const seg = document.createElement('i');
-        seg.style.left = a + '%';
-        seg.style.width = (b - a) + '%';
-        seg.style.setProperty('--d', (0.25 + row * 0.06 + a * 0.004).toFixed(3) + 's');
-        bar.appendChild(seg);
-      });
-      bars.appendChild(bar);
-    });
-  }
-
   const title = hero.querySelector('.hero__title .sweep');
-  if (title) title.style.setProperty('--d', '0.95s');
+  if (title) title.style.setProperty('--d', '0.3s');
 
   hero.querySelectorAll('.irow').forEach((row, i) => {
-    const base = 1.05 + i * 0.14;
+    const base = 0.55 + i * 0.14;
     row.style.setProperty('--ld', base.toFixed(2) + 's');
     row.querySelectorAll('.irow__n .sweep, .irow__label .sweep').forEach((el) => {
       el.style.setProperty('--d', (base + 0.45).toFixed(2) + 's');
