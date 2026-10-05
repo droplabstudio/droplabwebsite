@@ -7,13 +7,15 @@ The portfolio site for [Droplab Studio](https://droplabstudio.com). It's plain H
 ```
 index.html            ← all page content (projects, services, FAQ, contact)
 assets/css/styles.css ← all styling; colors and fonts are at the top under :root
-assets/js/main.js     ← project index, contact panel, scroll effects
+assets/js/main.js     ← intro sequence, project index, contact panel, scroll effects
 assets/img/           ← logo, favicon and project screenshots
 ```
 
 ## Common edits
 
 **Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the name, link and image. Add a matching `<li>` to the project index (`.work__index`) using the same `id`. Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
+
+**Hero index / intro:** the rows (Focus, Work, About, Contact) are in the `hero` section of `index.html`. Wrap any new text in `<span class="sweep">` so it animates in. The pattern of the stacked lines at the top and the intro timing are set at the top of `assets/js/main.js`.
 
 **Change colors:** edit the variables at the top of `assets/css/styles.css`.
 

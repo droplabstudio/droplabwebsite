@@ -20,13 +20,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('intro-done')},4500)</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- Header -->
-  <header class="top" id="top">
+  <header class="top is-tucked" id="top">
     <a class="top__brand" href="#top">Droplab Studio</a>
     <nav class="top__nav" aria-label="Primary">
       <a class="chip" href="#work">Work</a>
@@ -37,9 +37,63 @@
   </header>
 
   <main id="main">
+    <!-- Hero: index -->
+    <section class="hero" aria-label="Droplab Studio">
+      <div class="bars" aria-hidden="true"></div>
+
+      <h1 class="hero__title"><span class="sweep">Droplab Studio</span></h1>
+
+      <nav class="rows" aria-label="Index">
+        <div class="irow">
+          <span class="irow__n"><span class="sweep">I</span></span>
+          <span class="irow__label"><span class="sweep">Focus</span></span>
+          <ul class="irow__items">
+            <li><span class="sweep">Long-term e-commerce growth</span></li>
+            <li><span class="sweep">Shopify design &amp; development</span></li>
+            <li><span class="sweep">For clothing brands</span></li>
+          </ul>
+        </div>
+
+        <div class="irow">
+          <span class="irow__n"><span class="sweep">II</span></span>
+          <a class="irow__label" href="#work"><span class="sweep">Work</span></a>
+          <ul class="irow__items">
+            <li><a href="#p-midnight-special"><span class="sweep">Midnight Special</span></a></li>
+            <li><a href="#p-reaper-rags"><span class="sweep">Reaper Rags</span></a></li>
+            <li><a href="#p-gloe"><span class="sweep">Gloe</span></a></li>
+            <li><a href="#p-crystal-tears"><span class="sweep">Crystal Tears</span></a></li>
+            <li><a href="#p-rainier-daze"><span class="sweep">Rainier Daze Seattle</span></a></li>
+            <li><a href="#p-vuota"><span class="sweep">Vuota</span></a></li>
+          </ul>
+        </div>
+
+        <div class="irow">
+          <span class="irow__n"><span class="sweep">III</span></span>
+          <a class="irow__label" href="#about"><span class="sweep">About</span></a>
+          <ul class="irow__items">
+            <li><a href="#about"><span class="sweep">Studio</span></a></li>
+            <li><a href="#services"><span class="sweep">Services</span></a></li>
+            <li><a href="#principles"><span class="sweep">Principles</span></a></li>
+            <li><a href="#words"><span class="sweep">Words</span></a></li>
+            <li><a href="#faq"><span class="sweep">FAQ</span></a></li>
+          </ul>
+        </div>
+
+        <div class="irow">
+          <span class="irow__n"><span class="sweep">IV</span></span>
+          <a class="irow__label" href="#contact"><span class="sweep">Contact</span></a>
+          <ul class="irow__items">
+            <li><button type="button" data-open-contact><span class="sweep">Send a message</span></button></li>
+            <li><a href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener"><span class="sweep">Book a call ↗</span></a></li>
+            <li><a href="mailto:contact.droplab@gmail.com"><span class="sweep">Email</span></a></li>
+            <li><a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener"><span class="sweep">Instagram ↗</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
     <!-- Work -->
     <section class="work" id="work" aria-labelledby="work-title">
-      <h1 class="sr-only">Droplab Studio — Shopify design &amp; development for clothing brands</h1>
       <div class="row-label mono">
         <h2 id="work-title">Selected work</h2>
         <span>(06)</span>
@@ -153,7 +207,7 @@
       </p>
 
       <div class="studio__grid">
-        <div class="studio__block">
+        <div class="studio__block" id="services">
           <h3 class="mono">Services</h3>
           <ul class="list">
             <li>Custom Shopify themes</li>
@@ -166,7 +220,7 @@
           </ul>
         </div>
 
-        <div class="studio__block studio__block--wide">
+        <div class="studio__block studio__block--wide" id="principles">
           <h3 class="mono">Principles</h3>
           <ol class="principles">
             <li><span class="mono">I.</span><h4>Speed matters</h4><p>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</p></li>
@@ -179,7 +233,7 @@
     </section>
 
     <!-- Words -->
-    <section class="words" aria-labelledby="words-title">
+    <section class="words" id="words" aria-labelledby="words-title">
       <div class="row-label mono">
         <h2 id="words-title">Words</h2>
         <span>(03)</span>
@@ -253,7 +307,7 @@
   </footer>
 
   <!-- Floating glass panels -->
-  <div class="dock">
+  <div class="dock is-away">
     <button class="glass dock__btn mono" type="button" data-open-contact>Get in touch</button>
   </div>
 

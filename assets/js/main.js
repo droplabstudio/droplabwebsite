@@ -1,6 +1,58 @@
 // Droplab Studio — interactions. The page still works without JS.
 
 /* ----------------------------------------------------------
+   Hero intro: lines draw left → right, then text sweeps in
+   ---------------------------------------------------------- */
+(() => {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  // stacked line block: each row is a set of [start%, end%] segments
+  const PATTERN = [
+    [[0, 100]],
+    [[0, 22], [26, 41], [44, 100]],
+    [[0, 9], [26, 41], [44, 70]],
+    [[0, 100]],
+    [[0, 22], [44, 100]],
+    [[0, 9], [26, 41], [44, 88]],
+    [[0, 100]],
+    [[0, 9], [44, 70]],
+  ];
+  const bars = hero.querySelector('.bars');
+  if (bars) {
+    PATTERN.forEach((segs, row) => {
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      segs.forEach(([a, b]) => {
+        const seg = document.createElement('i');
+        seg.style.left = a + '%';
+        seg.style.width = (b - a) + '%';
+        seg.style.setProperty('--d', (0.25 + row * 0.06 + a * 0.004).toFixed(3) + 's');
+        bar.appendChild(seg);
+      });
+      bars.appendChild(bar);
+    });
+  }
+
+  const title = hero.querySelector('.hero__title .sweep');
+  if (title) title.style.setProperty('--d', '0.95s');
+
+  hero.querySelectorAll('.irow').forEach((row, i) => {
+    const base = 1.05 + i * 0.14;
+    row.style.setProperty('--ld', base.toFixed(2) + 's');
+    row.querySelectorAll('.irow__n .sweep, .irow__label .sweep').forEach((el) => {
+      el.style.setProperty('--d', (base + 0.45).toFixed(2) + 's');
+    });
+    row.querySelectorAll('.irow__items .sweep').forEach((el, j) => {
+      el.style.setProperty('--d', (base + 0.55 + j * 0.05).toFixed(2) + 's');
+    });
+  });
+
+  // start on the next frame so the hidden state paints first
+  requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
+})();
+
+/* ----------------------------------------------------------
    Work index: highlight the project in view
    ---------------------------------------------------------- */
 (() => {
@@ -83,21 +135,32 @@
 })();
 
 /* ----------------------------------------------------------
-   Header glass once scrolled; dock hidden over contact
+   Header: tucked away over the hero index, glass once scrolled.
+   Dock: hidden over the hero and contact sections.
    ---------------------------------------------------------- */
 (() => {
   const top = document.querySelector('.top');
   const dock = document.querySelector('.dock');
+  const hero = document.querySelector('.hero');
   const onScroll = () => top && top.classList.toggle('is-scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  if (!dock || !('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  if (top && hero) {
+    top.classList.add('is-tucked');
+    new IntersectionObserver(([entry]) => {
+      top.classList.toggle('is-tucked', entry.isIntersecting);
+    }, { rootMargin: '-80px 0px 0px 0px' }).observe(hero);
+  }
+
+  if (!dock) return;
   const hidden = new Set();
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target)));
     dock.classList.toggle('is-away', hidden.size > 0);
   }, { threshold: 0.15 });
-  document.querySelectorAll('.contact').forEach((el) => io.observe(el));
+  document.querySelectorAll('.hero, .contact').forEach((el) => io.observe(el));
 })();
 
 /* Footer year */
