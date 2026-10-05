@@ -15,7 +15,9 @@ assets/img/           ← logo, favicon and project screenshots
 
 **Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the name, link and image. Add a matching `<li>` to the project index (`.work__index`) using the same `id`. Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
 
-**Hero index / intro:** the rows (Focus, Work, About, Contact) are in the `hero` section of `index.html`. Wrap any new text in `<span class="sweep">` so it animates in. The intro timing is set at the top of `assets/js/main.js`.
+**Hero index / intro:** the rows (Focus, Work, About, Contact) are in the `hero` section of `index.html`. Wrap any new text in `<span class="sweep">` so it fades in with the rest. The whole intro (line timing, hero fade, and when the rest of the page appears) is plain CSS in the "Intro sequence" block of `assets/css/styles.css`.
+
+**After changing CSS or JS:** bump the `?v=` number on the `styles.css` and `main.js` links in `index.html` so browsers load the new version instead of a cached one.
 
 **Change colors:** edit the variables at the top of `assets/css/styles.css`.
 

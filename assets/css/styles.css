@@ -124,22 +124,27 @@ button { font: inherit; color: inherit; }
 .irow a, .irow button { transition: color .2s; }
 .irow a:hover, .irow button:hover { color: var(--ink); }
 
-/* intro sequence: rules draw, then text fades in (JS adds .is-in; .intro-done is a safety net) */
-.sweep { display: inline-block; }
-.js .hero .sweep {
-  opacity: 0;
-  transition: opacity .7s linear var(--d, 0s);
-}
-.js .hero .irow::before, .js .hero .irow::after { transform: scaleX(0); transition: transform 1.1s linear var(--ld, 0s); }
-.js .hero .irow::after { transition-duration: .3s; }
-.hero.is-in .sweep, .intro-done .hero .sweep { opacity: 1; }
-.hero.is-in .irow::before, .hero.is-in .irow::after,
-.intro-done .hero .irow::before, .intro-done .hero .irow::after { transform: none; }
+/* ---------- Intro sequence ----------
+   Pure CSS on one clock from the first frame, so the order can't drift:
+   0.30s–1.82s  row rules draw left → right (one every 0.14s, 1.1s each)
+   1.92s–2.62s  all hero text fades in
+   2.70s–3.40s  everything below the hero fades in
+   "both" keeps each element hidden until its turn. */
+@keyframes intro-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes intro-fade { from { opacity: 0; } to { opacity: 1; } }
 
-/* everything below the hero waits for the intro, then fades in */
-.js main > section:not(.hero), .js .foot { opacity: 0; transition: opacity .7s linear; }
-.intro-complete main > section:not(.hero), .intro-complete .foot,
-.intro-done main > section:not(.hero), .intro-done .foot { opacity: 1; }
+.sweep { display: inline-block; }
+.hero .irow::before { animation: intro-draw 1.1s linear var(--ld) both; }
+.hero .irow::after { animation: intro-draw .3s linear var(--ld) both; }
+.hero .irow:nth-child(1) { --ld: .30s; }
+.hero .irow:nth-child(2) { --ld: .44s; }
+.hero .irow:nth-child(3) { --ld: .58s; }
+.hero .irow:nth-child(4) { --ld: .72s; }
+.hero .sweep { animation: intro-fade .7s linear 1.92s both; }
+main > section:not(.hero), .foot { animation: intro-fade .7s linear 2.7s both; }
+
+/* deep links to a section (like /#work) skip the wait; set in <head> */
+.skip-intro main > section:not(.hero), .skip-intro .foot { animation: none; }
 
 /* header nav stays tucked away while the hero index is on screen; the brand is always visible */
 .top__nav { transition: opacity .4s var(--ease), transform .4s var(--ease); }

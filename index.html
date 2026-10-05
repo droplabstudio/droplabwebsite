@@ -19,8 +19,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('intro-done')},4500)</script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005">
+  <script>
+    document.documentElement.classList.add('js');
+    // deep links to a section (like /#work) skip the intro wait
+    if (/^#(focus|work|about|services|principles|words|faq|contact|p-[\w-]+)$/.test(location.hash)) document.documentElement.classList.add('skip-intro');
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -351,6 +355,6 @@
     </form>
   </div>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=20261005" defer></script>
 </body>
 </html>

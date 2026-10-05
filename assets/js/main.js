@@ -1,55 +1,14 @@
 // Droplab Studio — interactions. The page still works without JS.
 
 /* ----------------------------------------------------------
-   Hero intro: rules draw left → right, then all text fades in
+   Hero intro: the sequence itself is pure CSS (see styles.css).
+   Here we only make sure a fresh load starts at the top so it
+   plays in order (unless the URL deep-links to a section).
    ---------------------------------------------------------- */
 (() => {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  const START = 0.3;   // first rule starts drawing (s)
-  const STAGGER = 0.14; // gap between rules (s)
-  const DRAW = 1.1;    // time for one rule to cross the page (s); matches CSS
-
-  const rows = hero.querySelectorAll('.irow');
-  rows.forEach((row, i) => row.style.setProperty('--ld', (START + i * STAGGER).toFixed(2) + 's'));
-
-  // text fades in once the last rule is fully drawn
-  const textDelay = START + (rows.length - 1) * STAGGER + DRAW + 0.1;
-  hero.style.setProperty('--d', textDelay.toFixed(2) + 's');
-
-  // start on the next frame so the hidden state paints first
-  requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-in')));
-
-  // the rest of the page fades in after the hero text. Only real visitor input
-  // reveals it early: browsers also fire scroll events on their own (restoring
-  // the scroll position, mobile address bars), which shouldn't skip the intro.
-  const FADE = 0.7; // hero text fade length (s); matches CSS
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const INPUTS = ['wheel', 'touchmove', 'keydown'];
-  const reveal = () => {
-    document.documentElement.classList.add('intro-complete');
-    INPUTS.forEach((type) => window.removeEventListener(type, reveal));
-    document.removeEventListener('click', onClick);
-  };
-  const onClick = (e) => { if (e.target.closest('a[href^="#"], [data-open-contact]')) reveal(); };
-
-  // a deep link to a section below the hero (like /#work) skips the intro;
-  // other hashes (#top, or anything a preview tool adds) still play it
-  let target = null;
-  try { target = location.hash && document.querySelector(location.hash); } catch (err) { target = null; }
-  const deepLink = target && !hero.contains(target) && target.closest('main') && target.id !== 'main';
-
-  if (reduce || deepLink) {
-    reveal();
-  } else {
-    // always start at the top so the intro plays in order
-    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (err) { /* sandboxed */ }
-    window.scrollTo(0, 0);
-    setTimeout(reveal, (textDelay + FADE) * 1000);
-    INPUTS.forEach((type) => window.addEventListener(type, reveal, { passive: true }));
-    document.addEventListener('click', onClick);
-  }
+  if (document.documentElement.classList.contains('skip-intro')) return;
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (err) { /* sandboxed */ }
+  window.scrollTo(0, 0);
 })();
 
 /* ----------------------------------------------------------
