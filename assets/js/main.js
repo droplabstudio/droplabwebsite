@@ -12,28 +12,28 @@
 })();
 
 /* ----------------------------------------------------------
-   Section indexes (Focus, Work, About): highlight the item in view
+   Work index: highlight the project in view
    ---------------------------------------------------------- */
 (() => {
-  if (!('IntersectionObserver' in window)) return;
-  document.querySelectorAll('.work__index').forEach((index) => {
-    const links = [...index.querySelectorAll('a')];
-    const targets = links.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + entry.target.id));
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    targets.forEach((t) => io.observe(t));
-  });
+  const links = [...document.querySelectorAll('.work__index a')];
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      links.forEach((a) => a.classList.remove('is-active'));
+      const link = byId.get(entry.target.id);
+      if (link) link.classList.add('is-active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('.project').forEach((p) => io.observe(p));
 })();
 
 /* ----------------------------------------------------------
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.project');
+  const els = document.querySelectorAll('.focus__item, .project, .statement, .principles li, .words figure');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -66,6 +66,31 @@
   document.querySelectorAll('[data-close-contact]').forEach((b) => b.addEventListener('click', close));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
 
+  const form = panel.querySelector('.form');
+  const status = form.querySelector('.form__status');
+  const button = form.querySelector('.form__send');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'form__status mono';
+    status.textContent = 'Sending…';
+    button.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error('Request failed');
+      form.reset();
+      status.classList.add('is-ok');
+      status.textContent = "Thanks — we'll get back to you within 24 hours.";
+    } catch {
+      status.classList.add('is-err');
+      status.textContent = 'Something went wrong. Email contact.droplab@gmail.com instead.';
+    } finally {
+      button.disabled = false;
+    }
+  });
 })();
 
 /* ----------------------------------------------------------
@@ -94,65 +119,7 @@
     entries.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target)));
     dock.classList.toggle('is-away', hidden.size > 0);
   }, { threshold: 0.15 });
-  document.querySelectorAll('.hero, .about, .contact').forEach((el) => io.observe(el));
-})();
-
-/* ----------------------------------------------------------
-   Contact forms (inline + panel): submit to Formspree in place
-   ---------------------------------------------------------- */
-document.querySelectorAll('form[action*="formspree"]').forEach((form) => {
-  const status = form.querySelector('.form__status');
-  const button = form.querySelector('.form__send');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    status.className = 'form__status mono';
-    status.textContent = 'Sending…';
-    button.disabled = true;
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
-      });
-      if (!res.ok) throw new Error('Request failed');
-      form.reset();
-      status.classList.add('is-ok');
-      status.textContent = "Thanks — we'll get back to you within 24 hours.";
-    } catch {
-      status.classList.add('is-err');
-      status.textContent = 'Something went wrong. Email contact.droplab@gmail.com instead.';
-    } finally {
-      button.disabled = false;
-    }
-  });
-});
-
-/* ----------------------------------------------------------
-   Contact lock-up: cursor position as two 4-digit numbers,
-   x down the left column, y down the right
-   ---------------------------------------------------------- */
-(() => {
-  const cells = {};
-  document.querySelectorAll('[data-lock]').forEach((el) => { cells[el.dataset.lock] = el; });
-  if (!cells.x1) return;
-  const pad4 = (n) => String(Math.max(0, Math.min(9999, Math.round(n)))).padStart(4, '0');
-  let x = 0, y = 0, queued = false;
-  const paint = () => {
-    queued = false;
-    const xs = pad4(x), ys = pad4(y);
-    cells.x1.textContent = xs.slice(0, 2); cells.x2.textContent = xs.slice(2);
-    cells.y1.textContent = ys.slice(0, 2); cells.y2.textContent = ys.slice(2);
-  };
-  const track = (cx, cy) => {
-    x = cx; y = cy;
-    if (!queued) { queued = true; requestAnimationFrame(paint); }
-  };
-  window.addEventListener('pointermove', (e) => track(e.clientX, e.clientY), { passive: true });
-  // phones: follow the finger (touch scrolling doesn't fire pointermove)
-  ['touchstart', 'touchmove'].forEach((type) => window.addEventListener(type, (e) => {
-    const t = e.touches[0];
-    if (t) track(t.clientX, t.clientY);
-  }, { passive: true }));
+  document.querySelectorAll('.hero, .contact').forEach((el) => io.observe(el));
 })();
 
 /* Footer year */

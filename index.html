@@ -19,11 +19,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261005g">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261005h">
   <script>
     document.documentElement.classList.add('js');
     // deep links to a section (like /#work) skip the intro wait
-    if (/^#(focus|work|about|studio|services|principles|words|faq|contact|[pf]-[\w-]+)$/.test(location.hash)) document.documentElement.classList.add('skip-intro');
+    if (/^#(focus|work|about|services|principles|words|faq|contact|p-[\w-]+)$/.test(location.hash)) document.documentElement.classList.add('skip-intro');
   </script>
 </head>
 <body>
@@ -68,7 +68,7 @@
         <div class="irow">
           <a class="irow__label" href="#about"><span class="sweep">About</span></a>
           <ul class="irow__items">
-            <li><a href="#studio"><span class="sweep">Studio</span></a></li>
+            <li><a href="#about"><span class="sweep">Studio</span></a></li>
             <li><a href="#services"><span class="sweep">Services</span></a></li>
             <li><a href="#principles"><span class="sweep">Principles</span></a></li>
             <li><a href="#words"><span class="sweep">Words</span></a></li>
@@ -93,38 +93,18 @@
       <div class="row-label mono">
         <h2 id="focus-title">Focus</h2>
       </div>
-
-      <div class="work__grid">
-        <aside class="work__index" aria-label="Section index">
-          <ol class="mono">
-            <li><a href="#f-growth"><span>01</span>Long-term growth</a></li>
-            <li><a href="#f-shopify"><span>02</span>Shopify design &amp; development</a></li>
-            <li><a href="#f-brands"><span>03</span>For e-commerce brands</a></li>
-          </ol>
-        </aside>
-
-        <div class="work__list work__list--text">
-          <article class="project project--text" id="f-growth">
-            <h3 class="project__name mono"><span>01</span>Long-term growth</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>01</span><span>Long-term growth</span></p>
-              <p class="info__row info__note"><span></span><span>Stores built as systems that keep performing after launch and grow with your brand, from first release onward.</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="f-shopify">
-            <h3 class="project__name mono"><span>02</span>Shopify design &amp; development</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>02</span><span>Shopify design &amp; development</span></p>
-              <p class="info__row info__note"><span></span><span>Custom themes built from the ground up. Design, development, mobile optimization, and user experience under one studio.</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="f-brands">
-            <h3 class="project__name mono"><span>03</span>For e-commerce brands</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>03</span><span>For e-commerce brands</span></p>
-              <p class="info__row info__note"><span></span><span>Whatever you sell, stores built around how your customers shop: clear product pages, a smooth path to checkout, and every detail tuned for conversion.</span></p>
-            </div>
-          </article>
+      <div class="focus__grid">
+        <div class="focus__item">
+          <h3 class="mono">Long-term growth</h3>
+          <p>Stores built as systems that keep performing after launch and grow with your brand, from first release onward.</p>
+        </div>
+        <div class="focus__item">
+          <h3 class="mono">Shopify design &amp; development</h3>
+          <p>Custom themes built from the ground up. Design, development, mobile optimization, and user experience under one studio.</p>
+        </div>
+        <div class="focus__item">
+          <h3 class="mono">For e-commerce brands</h3>
+          <p>Whatever you sell, stores built around how your customers shop: clear product pages, a smooth path to checkout, and every detail tuned for conversion.</p>
         </div>
       </div>
     </section>
@@ -230,96 +210,91 @@
     </section>
 
     <!-- About -->
-    <section class="about" id="about" aria-labelledby="about-title">
+    <section class="studio" id="about" aria-labelledby="about-title">
       <div class="row-label mono">
         <h2 id="about-title">About</h2>
+        <span>What is Droplab?</span>
       </div>
 
-      <div class="work__grid">
-        <aside class="work__index" aria-label="Section index">
-          <ol class="mono">
-            <li><a href="#studio"><span>01</span>Studio</a></li>
-            <li><a href="#services"><span>02</span>Services</a></li>
-            <li><a href="#principles"><span>03</span>Principles</a></li>
-            <li><a href="#words"><span>04</span>Words</a></li>
-            <li><a href="#faq"><span>05</span>FAQ</a></li>
-          </ol>
-        </aside>
+      <p class="statement">
+        A digital lab built for clothing brands who take their drops seriously.
+        We design and build Shopify stores with sharp design and smart systems,
+        made to look right and sell out.
+      </p>
 
-        <div class="work__list work__list--text">
-          <article class="project project--text" id="studio">
-            <h3 class="project__name mono"><span>01</span>Studio</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>01</span><span>Studio</span></p>
-              <p class="info__row info__note"><span></span><span>A digital lab built for clothing brands who take their drops seriously. We design and build Shopify stores with sharp design and smart systems, made to look right and sell out.</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="services">
-            <h3 class="project__name mono"><span>02</span>Services</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>02</span><span>Services</span></p>
-              <p class="info__row mono"><span>Build</span><span>Custom Shopify themes</span></p>
-              <p class="info__row mono"><span></span><span>Store redesigns</span></p>
-              <p class="info__row mono"><span></span><span>Mobile-first development</span></p>
-              <p class="info__row mono"><span>Optimize</span><span>UX &amp; conversion</span></p>
-              <p class="info__row mono"><span></span><span>Performance optimization</span></p>
-              <p class="info__row mono"><span>Brand</span><span>Graphic &amp; logo design</span></p>
-              <p class="info__row mono"><span>Launch</span><span>Rollout planning</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="principles">
-            <h3 class="project__name mono"><span>03</span>Principles</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>03</span><span>Principles</span></p>
-              <p class="info__row mono"><span>01</span><span>Speed matters</span></p>
-              <p class="info__row info__note"><span></span><span>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</span></p>
-              <p class="info__row mono"><span>02</span><span>Details win</span></p>
-              <p class="info__row info__note"><span></span><span>We obsess over the small things that separate sold-out drops from missed opportunities.</span></p>
-              <p class="info__row mono"><span>03</span><span>True partnership</span></p>
-              <p class="info__row info__note"><span></span><span>Not just a service provider. An extension of your team, invested in your brand's growth.</span></p>
-              <p class="info__row mono"><span>04</span><span>Built to scale</span></p>
-              <p class="info__row info__note"><span></span><span>Systems that grow with your brand, from first release to empire status.</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="words">
-            <h3 class="project__name mono"><span>04</span>Words</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>04</span><span>Words</span></p>
-              <p class="info__row mono"><span>Client</span><span>Roberto, Founder — Redeye</span></p>
-              <p class="info__row info__note"><span></span><span>“Droplab’s creative services have helped our brand connect to a highly energized audience instantly. Their attention to detail during the design process helped us build a carefully curated brand identity, leading to an uptick in attendee conversions.”</span></p>
-              <p class="info__row mono"><span>Client</span><span>Madani, Founder — Keep Magazine</span></p>
-              <p class="info__row info__note"><span></span><span>“Working with Droplab was a super professional experience. The designers understood my sensibilities and executed in a timely manner and to an excellent standard. I would definitely work with them again for any Shopify-related work.”</span></p>
-              <p class="info__row mono"><span>Client</span><span>Gem, Founder — Folded Inc.</span></p>
-              <p class="info__row info__note"><span></span><span>“Droplab took a substantial part of my operations off my hands and was helpful at every sprint of development on my new website. Highly recommend for those looking into custom stores and going beyond the templates!”</span></p>
-            </div>
-          </article>
-          <article class="project project--text" id="faq">
-            <h3 class="project__name mono"><span>05</span>FAQ</h3>
-            <div class="info">
-              <p class="info__row info__head mono"><span>05</span><span>FAQ</span></p>
-              <details class="qa">
-                <summary class="info__row mono"><span>Q.01</span><span>How much does a Shopify website cost?</span></summary>
-                <p class="info__row info__note"><span></span><span>Projects vary depending on scope, features, and the level of customization required. Each store is tailored to the brand, so pricing reflects the complexity of the build, design requirements, and performance goals. After a quick discovery, we provide a clear, fixed quote with no surprises.</span></p>
-              </details>
-              <details class="qa">
-                <summary class="info__row mono"><span>Q.02</span><span>How long does the process take?</span></summary>
-                <p class="info__row info__note"><span></span><span>Most projects are completed within a few weeks, depending on the size of the store and how quickly content and feedback are provided. We follow a structured process to keep everything moving efficiently while maintaining a high standard of quality.</span></p>
-              </details>
-              <details class="qa">
-                <summary class="info__row mono"><span>Q.03</span><span>What’s included in your Shopify design service?</span></summary>
-                <p class="info__row info__note"><span></span><span>Everything needed to launch a high-performing Shopify store, including design, development, mobile optimization, and overall user experience. We focus on creating a site that not only looks strong visually but is also built to convert.</span></p>
-              </details>
-              <details class="qa">
-                <summary class="info__row mono"><span>Q.04</span><span>Do you work with existing stores or only new builds?</span></summary>
-                <p class="info__row info__note"><span></span><span>Both. Whether you're starting from scratch or looking to improve an existing site, we can step in and help elevate the design, performance, and overall user experience.</span></p>
-              </details>
-              <details class="qa">
-                <summary class="info__row mono"><span>Q.05</span><span>What makes you different from other Shopify designers?</span></summary>
-                <p class="info__row info__note"><span></span><span>We build stores designed to perform while still looking good. Every decision is made with user experience and conversion in mind, so the final result supports your brand while driving measurable results.</span></p>
-              </details>
-            </div>
-          </article>
+      <div class="studio__grid">
+        <div class="studio__block" id="services">
+          <h3 class="mono">Services</h3>
+          <ul class="list">
+            <li>Custom Shopify themes</li>
+            <li>Store redesigns</li>
+            <li>UX &amp; conversion</li>
+            <li>Mobile-first development</li>
+            <li>Performance optimization</li>
+            <li>Graphic &amp; logo design</li>
+            <li>Rollout planning</li>
+          </ul>
         </div>
+
+        <div class="studio__block studio__block--wide" id="principles">
+          <h3 class="mono">Principles</h3>
+          <ol class="principles">
+            <li><span class="mono">I.</span><h4>Speed matters</h4><p>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</p></li>
+            <li><span class="mono">II.</span><h4>Details win</h4><p>We obsess over the small things that separate sold-out drops from missed opportunities.</p></li>
+            <li><span class="mono">III.</span><h4>True partnership</h4><p>Not just a service provider. An extension of your team, invested in your brand's growth.</p></li>
+            <li><span class="mono">IV.</span><h4>Built to scale</h4><p>Systems that grow with your brand, from first release to empire status.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Words -->
+    <section class="words" id="words" aria-labelledby="words-title">
+      <div class="row-label mono">
+        <h2 id="words-title">Words</h2>
+      </div>
+      <div class="words__grid">
+        <figure>
+          <blockquote>“Droplab’s creative services have helped our brand connect to a highly energized audience instantly. Their attention to detail during the design process helped us build a carefully curated brand identity, leading to an uptick in attendee conversions.”</blockquote>
+          <figcaption class="mono">Roberto — Founder, Redeye</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Working with Droplab was a super professional experience. The designers understood my sensibilities and executed in a timely manner and to an excellent standard. I would definitely work with them again for any Shopify-related work.”</blockquote>
+          <figcaption class="mono">Madani — Founder, Keep Magazine</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Droplab took a substantial part of my operations off my hands and was helpful at every sprint of development on my new website. Highly recommend for those looking into custom stores and going beyond the templates!”</blockquote>
+          <figcaption class="mono">Gem — Founder, Folded Inc.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="row-label mono">
+        <h2 id="faq-title">FAQ</h2>
+      </div>
+      <div class="faq__list">
+        <details>
+          <summary><span class="mono faq__n">Q.01</span><span class="faq__q">How much does a Shopify website cost?</span></summary>
+          <p>Projects vary depending on scope, features, and the level of customization required. Each store is tailored to the brand, so pricing reflects the complexity of the build, design requirements, and performance goals. After a quick discovery, we provide a clear, fixed quote with no surprises.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.02</span><span class="faq__q">How long does the process take?</span></summary>
+          <p>Most projects are completed within a few weeks, depending on the size of the store and how quickly content and feedback are provided. We follow a structured process to keep everything moving efficiently while maintaining a high standard of quality.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.03</span><span class="faq__q">What’s included in your Shopify design service?</span></summary>
+          <p>Everything needed to launch a high-performing Shopify store, including design, development, mobile optimization, and overall user experience. We focus on creating a site that not only looks strong visually but is also built to convert.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.04</span><span class="faq__q">Do you work with existing stores or only new builds?</span></summary>
+          <p>Both. Whether you're starting from scratch or looking to improve an existing site, we can step in and help elevate the design, performance, and overall user experience.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.05</span><span class="faq__q">What makes you different from other Shopify designers?</span></summary>
+          <p>We build stores designed to perform while still looking good. Every decision is made with user experience and conversion in mind, so the final result supports your brand while driving measurable results.</p>
+        </details>
       </div>
     </section>
 
@@ -327,60 +302,22 @@
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="row-label mono">
         <h2 id="contact-title">Contact</h2>
+        <span>Reply within 24h</span>
       </div>
-
-      <div class="cx">
-        <form class="cx__form" action="https://formspree.io/f/xqavakkv" method="POST">
-          <p class="cx__title mono">Message</p>
-          <p class="cx__intro">Want the most out of your brand? Tell us about your store and we'll get back to you within 24 hours.</p>
-          <label class="cx__field"><span class="mono">Name</span><input type="text" name="name" required autocomplete="name"></label>
-          <label class="cx__field"><span class="mono">Email</span><input type="email" name="email" required autocomplete="email"></label>
-          <label class="cx__field"><span class="mono">Brand</span><input type="text" name="brand" placeholder="Optional" autocomplete="organization"></label>
-          <label class="cx__field cx__field--area"><span class="mono">Message</span><textarea name="message" rows="3" required></textarea></label>
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="cx__actions">
-            <button class="cx__send mono form__send" type="submit">Send</button>
-            <p class="form__status mono" role="status" aria-live="polite"></p>
-          </div>
-        </form>
-
-        <!-- lock-up: the numbers are the visitor's cursor position (x on the left, y on the right) -->
-        <div class="lockup mono" aria-hidden="true">
-          <span data-lock="x1">00</span><span>Droplab</span><span data-lock="y1">00</span>
-          <span data-lock="x2">00</span><span>Studio</span><span data-lock="y2">00</span>
-        </div>
+      <p class="contact__lead">Want the most out of your brand?</p>
+      <a class="contact__mail" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a>
+      <div class="contact__actions">
+        <button class="chip chip--dark chip--lg" type="button" data-open-contact>Send a message</button>
+        <a class="chip chip--lg" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
+        <a class="chip chip--lg" href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a>
       </div>
     </section>
   </main>
 
   <footer class="foot mono">
-    <div class="foot__col">
-      <h3 class="foot__title">Studio</h3>
-      <nav class="foot__links" aria-label="Studio">
-        <a href="#focus">Focus</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#top">Back to top ↑</a>
-      </nav>
-    </div>
-    <div class="foot__col">
-      <h3 class="foot__title">Information</h3>
-      <nav class="foot__links" aria-label="Information">
-        <a href="#services">Services</a>
-        <a href="#principles">Principles</a>
-        <a href="#words">Words</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-    <div class="foot__col">
-      <h3 class="foot__title">Contact</h3>
-      <nav class="foot__links" aria-label="Contact">
-        <a href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
-        <a class="lower" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a>
-        <a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a>
-      </nav>
-      <p class="foot__base">© <span id="year">2026</span> Droplab Studio</p>
-    </div>
+    <span>© <span id="year">2026</span> Droplab Studio</span>
+    <span>Shopify design &amp; development</span>
+    <a href="#top">Top ↑</a>
   </footer>
 
   <!-- Floating glass panels -->
@@ -414,6 +351,6 @@
     </form>
   </div>
 
-  <script src="assets/js/main.js?v=20261005g" defer></script>
+  <script src="assets/js/main.js?v=20261005h" defer></script>
 </body>
 </html>

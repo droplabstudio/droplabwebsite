@@ -5,7 +5,7 @@ The portfolio site for [Droplab Studio](https://droplabstudio.com). It's plain H
 ## Files
 
 ```
-index.html            ← all page content, in order: hero, focus, work, about (studio, services, principles, words, FAQ), contact. Focus, About and Contact reuse the Work layout (`work__index` on the left, `project--text` blocks with `info` rows on the right); only the hero uses the ruled `irow` rows.
+index.html            ← all page content, in order: hero, focus, work, about (studio, words, FAQ), contact
 assets/css/styles.css ← all styling; colors and fonts are at the top under :root
 assets/js/main.js     ← intro sequence, project index, contact panel, scroll effects
 assets/img/           ← logo, favicon and project screenshots
@@ -21,9 +21,7 @@ assets/img/           ← logo, favicon and project screenshots
 
 **Change colors:** edit the variables at the top of `assets/css/styles.css`.
 
-**Contact section / footer:** modelled on Heliot Emil's footer. The inline form sits on the right; the DROPLAB / STUDIO lock-up shows the visitor's cursor position (x down the left, y down the right, set in `main.js`); the three-column footer links live in the `<footer>`.
-
-**Contact form:** both the inline form and the glass pop-up submit to Formspree (`https://formspree.io/f/xqavakkv`), the same form the Shopify site used, and arrive in that Formspree account's inbox. In Formspree's settings, add the new domain if domain restrictions are on.
+**Contact form:** submissions go to Formspree (`https://formspree.io/f/xqavakkv`), the same form the Shopify site used, and arrive in that Formspree account's inbox. In Formspree's settings, add the new domain if domain restrictions are on.
 
 ## Preview locally
 
