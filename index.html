@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Droplab Studio — Shopify Design &amp; Development</title>
   <meta name="description" content="Droplab Studio is a digital lab building high-converting Shopify stores for clothing brands who take their drops seriously.">
-  <meta name="theme-color" content="#0a0a0b">
+  <meta name="theme-color" content="#f2f2f0">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Droplab Studio — Shopify stores that actually work">
@@ -18,371 +18,301 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <!-- Ambient liquid background -->
-  <div class="ambient" aria-hidden="true">
-    <span class="blob blob--1"></span>
-    <span class="blob blob--2"></span>
-    <span class="blob blob--3"></span>
-    <div class="grain"></div>
+  <div class="cols" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
   </div>
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Navigation -->
-  <header class="nav" id="top">
-    <div class="nav__inner glass">
-      <a class="nav__brand" href="#top" aria-label="Droplab Studio home">
-        <img src="assets/img/logo.png" alt="" width="34" height="26">
-        <span>Droplab<em>Studio</em></span>
-      </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#studio">Studio</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a class="btn btn--small btn--light" href="#contact">Start a project</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu glass" id="mobile-menu" hidden>
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#studio">Studio</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <!-- Header -->
+  <header class="top" id="top">
+    <a class="top__brand" href="#top">Droplab Studio</a>
+    <nav class="top__nav" aria-label="Primary">
+      <a class="chip" href="#work">Work</a>
+      <a class="chip" href="#studio">Studio</a>
+      <a class="chip" href="#faq">FAQ</a>
+      <button class="chip chip--dark" type="button" data-open-contact>Contact</button>
+    </nav>
   </header>
 
   <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow reveal"><span class="dot"></span> Booking new projects</p>
-        <h1 class="hero__title reveal">
-          Building Shopify stores<br>
-          that <em>actually</em> work.
-        </h1>
-        <div class="hero__bottom reveal">
-          <p class="hero__lede">
-            Droplab is a digital lab for clothing brands who take their drops seriously.
-            Custom design and development, built to look sharp and convert.
-          </p>
-          <div class="hero__ctas">
-            <a class="btn btn--light" href="#work">See the work <span aria-hidden="true">↓</span></a>
-            <a class="btn btn--glass" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a call</a>
-          </div>
-        </div>
-      </div>
+    <!-- Hero: generative ASCII drop field -->
+    <section class="hero" aria-label="Introduction">
+      <canvas class="hero__field" aria-hidden="true"></canvas>
+      <div class="lens" aria-hidden="true"></div>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>Midnight Special</span><i>✦</i><span>Reaper Rags</span><i>✦</i><span>Gloe</span><i>✦</i><span>Crystal Tears</span><i>✦</i><span>Rainier Daze</span><i>✦</i><span>Vuota</span><i>✦</i>
-          <span>Midnight Special</span><i>✦</i><span>Reaper Rags</span><i>✦</i><span>Gloe</span><i>✦</i><span>Crystal Tears</span><i>✦</i><span>Rainier Daze</span><i>✦</i><span>Vuota</span><i>✦</i>
-        </div>
+      <p class="hero__tag mono">
+        <span>Shopify design &amp; development</span>
+        <span>for clothing brands</span>
+      </p>
+      <p class="hero__coords mono" aria-hidden="true">
+        <span>X <b data-x>0.500</b></span>
+        <span>Y <b data-y>0.500</b></span>
+        <span>N° <b>06</b> projects</span>
+      </p>
+
+      <div class="hero__foot">
+        <h1 class="hero__title">Building Shopify stores<br>that actually work.</h1>
+        <a class="hero__scroll mono" href="#work">Scroll ↓</a>
       </div>
     </section>
 
     <!-- Work -->
-    <section class="section" id="work">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="label">01 — Selected work</p>
-          <h2>Stores built for <em>the drop.</em></h2>
-        </div>
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="row-label mono">
+        <h2 id="work-title">Selected work</h2>
+        <span>(06)</span>
+      </div>
 
-        <div class="work">
-          <article class="project reveal">
-            <a class="project__media" href="https://midnightspecial.io/" target="_blank" rel="noopener">
+      <div class="work__grid">
+        <aside class="work__index" aria-label="Project index">
+          <ol class="mono">
+            <li><a href="#p-midnight-special"><span>01</span>Midnight Special</a></li>
+            <li><a href="#p-reaper-rags"><span>02</span>Reaper Rags</a></li>
+            <li><a href="#p-gloe"><span>03</span>Gloe</a></li>
+            <li><a href="#p-crystal-tears"><span>04</span>Crystal Tears</a></li>
+            <li><a href="#p-rainier-daze"><span>05</span>Rainier Daze Seattle</a></li>
+            <li><a href="#p-vuota"><span>06</span>Vuota</a></li>
+          </ol>
+        </aside>
+
+        <div class="work__list">
+          <article class="project" id="p-midnight-special">
+            <a class="project__frame" href="https://midnightspecial.io/" target="_blank" rel="noopener">
               <img src="assets/img/midnight-special.jpg" alt="Midnight Special website homepage" loading="lazy" width="2000" height="858">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Midnight Special</h3>
-                <p>Most of the focus went into the product page, making it very tech-focused with custom gauges, wash instructions, materials, and more.</p>
-              </div>
-              <ul class="tags"><li>Product page</li><li>Custom sections</li></ul>
-            </div>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>01</dd></div>
+              <div><dt>Client</dt><dd>Midnight Special</dd></div>
+              <div><dt>Scope</dt><dd>Product page, custom sections</dd></div>
+              <div><dt>Stack</dt><dd>Shopify</dd></div>
+              <div><dt>URL</dt><dd><a href="https://midnightspecial.io/" target="_blank" rel="noopener">midnightspecial.io ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>Most of the focus went into the product page, making it very tech-focused with custom gauges, wash instructions, materials, and more.</dd></div>
+            </dl>
           </article>
 
-          <article class="project reveal">
-            <a class="project__media" href="https://reaperrags.com/" target="_blank" rel="noopener">
+          <article class="project" id="p-reaper-rags">
+            <a class="project__frame" href="https://reaperrags.com/" target="_blank" rel="noopener">
               <img src="assets/img/reaper-rags.jpg" alt="Reaper Rags website homepage" loading="lazy" width="2000" height="881">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Reaper Rags</h3>
-                <p>A custom website build tailored to the brand's dark aesthetic, with custom elements like flame buttons and pixelated icons while still optimizing for conversion.</p>
-              </div>
-              <ul class="tags"><li>Full build</li><li>Custom UI</li></ul>
-            </div>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>02</dd></div>
+              <div><dt>Client</dt><dd>Reaper Rags</dd></div>
+              <div><dt>Scope</dt><dd>Design, development</dd></div>
+              <div><dt>Stack</dt><dd>Shopify</dd></div>
+              <div><dt>URL</dt><dd><a href="https://reaperrags.com/" target="_blank" rel="noopener">reaperrags.com ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>A custom website build tailored to the brand's dark aesthetic, with custom elements like flame buttons and pixelated icons while still optimizing for conversion.</dd></div>
+            </dl>
           </article>
 
-          <article class="project reveal">
-            <a class="project__media" href="https://gloeproduct.com/" target="_blank" rel="noopener">
+          <article class="project" id="p-gloe">
+            <a class="project__frame" href="https://gloeproduct.com/" target="_blank" rel="noopener">
               <img src="assets/img/gloe.jpg" alt="Gloe website homepage" loading="lazy" width="2000" height="912">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Gloe</h3>
-                <p>A full website rebuild that matches the style of the brand while maintaining all the conversion elements.</p>
-              </div>
-              <ul class="tags"><li>Rebuild</li><li>CRO</li></ul>
-            </div>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>03</dd></div>
+              <div><dt>Client</dt><dd>Gloe</dd></div>
+              <div><dt>Scope</dt><dd>Full rebuild</dd></div>
+              <div><dt>Stack</dt><dd>Shopify</dd></div>
+              <div><dt>URL</dt><dd><a href="https://gloeproduct.com/" target="_blank" rel="noopener">gloeproduct.com ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>A full website rebuild that matches the style of the brand while maintaining all the conversion elements.</dd></div>
+            </dl>
           </article>
 
-          <article class="project reveal">
-            <a class="project__media" href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">
+          <article class="project" id="p-crystal-tears">
+            <a class="project__frame" href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">
               <img src="assets/img/crystal-tears.jpg" alt="Crystal Tears website best sellers grid" loading="lazy" width="2000" height="1087">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Crystal Tears</h3>
-                <p>Full website build with custom vertical grids to be more model-based, with a fully integrated quick-add function.</p>
-              </div>
-              <ul class="tags"><li>Full build</li><li>Quick-add</li></ul>
-            </div>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>04</dd></div>
+              <div><dt>Client</dt><dd>Crystal Tears</dd></div>
+              <div><dt>Scope</dt><dd>Design, development, quick-add</dd></div>
+              <div><dt>Stack</dt><dd>Shopify</dd></div>
+              <div><dt>URL</dt><dd><a href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">crystaltearsclo.com ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>Full website build with custom vertical grids to be more model-based, with a fully integrated quick-add function.</dd></div>
+            </dl>
           </article>
 
-          <article class="project reveal">
-            <a class="project__media" href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">
+          <article class="project" id="p-rainier-daze">
+            <a class="project__frame" href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">
               <img src="assets/img/rainier-daze.jpg" alt="Rainier Daze Seattle website styled as Windows 95" loading="lazy" width="2000" height="1030">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Rainier Daze Seattle</h3>
-                <p>This Shopify build recreates Windows 95, giving users a fully immersive experience including background noise, a boot-up screen, and more.</p>
-              </div>
-              <ul class="tags"><li>Experiential</li><li>Custom theme</li></ul>
-            </div>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>05</dd></div>
+              <div><dt>Client</dt><dd>Rainier Daze Seattle</dd></div>
+              <div><dt>Scope</dt><dd>Experiential build</dd></div>
+              <div><dt>Stack</dt><dd>Shopify</dd></div>
+              <div><dt>URL</dt><dd><a href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">rainierdazeseattle.com ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>This Shopify build recreates Windows 95, giving users a fully immersive experience including background noise, a boot-up screen, and more.</dd></div>
+            </dl>
           </article>
 
-          <article class="project reveal">
-            <a class="project__media" href="https://www.vuota.us" target="_blank" rel="noopener">
+          <article class="project" id="p-vuota">
+            <a class="project__frame" href="https://www.vuota.us" target="_blank" rel="noopener">
               <img src="assets/img/vuota.jpg" alt="Vuota website homepage" loading="lazy" width="2000" height="1047">
-              <span class="project__visit glass">Visit site ↗</span>
             </a>
-            <div class="project__meta">
-              <div>
-                <h3>Vuota</h3>
-                <p>Transformed their site into a clean, straightforward look that increased conversions by 1.5%.</p>
-              </div>
-              <ul class="tags"><li>Redesign</li><li>+1.5% conversion</li></ul>
-            </div>
-          </article>
-        </div>
-
-        <!-- Index list -->
-        <div class="index reveal">
-          <div class="index__row index__row--head">
-            <span>Brand</span><span>Scope</span><span>Stack</span><span></span>
-          </div>
-          <a class="index__row" href="https://midnightspecial.io/" target="_blank" rel="noopener"><span>Midnight Special</span><span>Product experience</span><span>Shopify</span><span>↗</span></a>
-          <a class="index__row" href="https://reaperrags.com/" target="_blank" rel="noopener"><span>Reaper Rags</span><span>Design, Development</span><span>Shopify</span><span>↗</span></a>
-          <a class="index__row" href="https://gloeproduct.com/" target="_blank" rel="noopener"><span>Gloe</span><span>Rebuild</span><span>Shopify</span><span>↗</span></a>
-          <a class="index__row" href="https://www.crystaltearsclo.com" target="_blank" rel="noopener"><span>Crystal Tears</span><span>Design, Development</span><span>Shopify</span><span>↗</span></a>
-          <a class="index__row" href="https://rainierdazeseattle.com/" target="_blank" rel="noopener"><span>Rainier Daze Seattle</span><span>Experiential build</span><span>Shopify</span><span>↗</span></a>
-          <a class="index__row" href="https://www.vuota.us" target="_blank" rel="noopener"><span>Vuota</span><span>Redesign, CRO</span><span>Shopify</span><span>↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="label">02 — Services</p>
-          <h2>Everything a drop needs, <em>under one studio.</em></h2>
-          <p class="section__intro">End-to-end solutions for clothing brands. From design to execution, we handle everything you need for a flawless launch.</p>
-        </div>
-
-        <div class="services">
-          <article class="card glass reveal card--feature">
-            <span class="card__num">01</span>
-            <h3>Custom Shopify Builds</h3>
-            <p>Bespoke Shopify themes built from the ground up. High-converting, lightning-fast stores that reflect your brand's unique identity.</p>
-            <ul><li>Custom theme development</li><li>Mobile-first responsive design</li><li>Performance optimization</li><li>Seamless checkout experience</li></ul>
-          </article>
-          <article class="card glass reveal">
-            <span class="card__num">02</span>
-            <h3>Store Redesigns</h3>
-            <p>Already on Shopify? We step in to elevate the design, performance, and overall user experience of your existing store.</p>
-            <ul><li>UX &amp; conversion audits</li><li>Visual refresh</li><li>Speed improvements</li></ul>
-          </article>
-          <article class="card glass reveal">
-            <span class="card__num">03</span>
-            <h3>Graphic &amp; Logo Design</h3>
-            <p>Eye-catching visuals and memorable identities that stand out in the streetwear scene.</p>
-            <ul><li>Logo &amp; brand identity</li><li>Product mockups</li><li>Social &amp; promo graphics</li></ul>
-          </article>
-          <article class="card glass reveal">
-            <span class="card__num">04</span>
-            <h3>Rollout &amp; Consulting</h3>
-            <p>Strategic launch planning that maximizes hype and sales, coordinated down to the last detail.</p>
-            <ul><li>Launch timelines</li><li>Marketing coordination</li><li>Post-launch optimization</li></ul>
+            <dl class="spec mono">
+              <div><dt>N°</dt><dd>06</dd></div>
+              <div><dt>Client</dt><dd>Vuota</dd></div>
+              <div><dt>Scope</dt><dd>Redesign, CRO</dd></div>
+              <div><dt>Result</dt><dd>+1.5% conversion</dd></div>
+              <div><dt>URL</dt><dd><a href="https://www.vuota.us" target="_blank" rel="noopener">vuota.us ↗</a></dd></div>
+              <div class="spec__note"><dt>Note</dt><dd>Transformed their site into a clean, straightforward look that increased conversions by 1.5%.</dd></div>
+            </dl>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Studio / About -->
-    <section class="section" id="studio">
-      <div class="container">
-        <div class="studio">
-          <div class="studio__intro reveal">
-            <p class="label">03 — The studio</p>
-            <h2>What is <em>Droplab?</em></h2>
-            <p class="big">A digital lab built for brands who take their drops seriously.</p>
-            <p>We design high-converting Shopify stores and everything around them. Our approach is simple: sharp design, smart systems, and everything a brand needs to prepare, execute, and scale a flawless drop, all under one studio.</p>
-            <div class="stats">
-              <div class="stat glass"><strong>100%</strong><span>Dedicated</span></div>
-              <div class="stat glass"><strong>All-in-one</strong><span>Solution</span></div>
-              <div class="stat glass"><strong>Flawless</strong><span>Execution</span></div>
-            </div>
-          </div>
+    <!-- Studio -->
+    <section class="studio" id="studio" aria-labelledby="studio-title">
+      <div class="row-label mono">
+        <h2 id="studio-title">Studio</h2>
+        <span>What is Droplab?</span>
+      </div>
 
+      <p class="statement">
+        A digital lab built for clothing brands who take their drops seriously.
+        We design and build Shopify stores with sharp design and smart systems,
+        made to look right and sell out.
+      </p>
+
+      <div class="studio__grid">
+        <div class="studio__block">
+          <h3 class="mono">Services</h3>
+          <ul class="list">
+            <li>Custom Shopify themes</li>
+            <li>Store redesigns</li>
+            <li>UX &amp; conversion</li>
+            <li>Mobile-first development</li>
+            <li>Performance optimization</li>
+            <li>Graphic &amp; logo design</li>
+            <li>Rollout planning</li>
+          </ul>
+        </div>
+
+        <div class="studio__block studio__block--wide">
+          <h3 class="mono">Principles</h3>
           <ol class="principles">
-            <li class="reveal">
-              <span class="principles__n">01</span>
-              <div><h3>Speed matters</h3><p>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</p></div>
-            </li>
-            <li class="reveal">
-              <span class="principles__n">02</span>
-              <div><h3>Details win</h3><p>From pixel-perfect designs to precise builds, we obsess over the small things that separate sold-out drops from missed opportunities.</p></div>
-            </li>
-            <li class="reveal">
-              <span class="principles__n">03</span>
-              <div><h3>True partnership</h3><p>Your success is our success. We're not just a service provider. We're an extension of your team, invested in your brand's growth.</p></div>
-            </li>
-            <li class="reveal">
-              <span class="principles__n">04</span>
-              <div><h3>Built to scale</h3><p>We don't just launch drops. We build systems that grow with your brand, from first release to empire status.</p></div>
-            </li>
+            <li><span class="mono">I.</span><h4>Speed matters</h4><p>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</p></li>
+            <li><span class="mono">II.</span><h4>Details win</h4><p>We obsess over the small things that separate sold-out drops from missed opportunities.</p></li>
+            <li><span class="mono">III.</span><h4>True partnership</h4><p>Not just a service provider. An extension of your team, invested in your brand's growth.</p></li>
+            <li><span class="mono">IV.</span><h4>Built to scale</h4><p>Systems that grow with your brand, from first release to empire status.</p></li>
           </ol>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section section--tight" aria-labelledby="kind-words">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="label">04 — Kind words</p>
-          <h2 id="kind-words">From the <em>founders.</em></h2>
-        </div>
-        <div class="quotes">
-          <figure class="quote glass reveal">
-            <blockquote>“Droplab’s creative services have helped our brand connect to a highly energized audience instantly. Their attention to detail during the design process helped us build a carefully curated brand identity, leading to an uptick in attendee conversions.”</blockquote>
-            <figcaption><strong>Roberto</strong><span>Founder, Redeye</span></figcaption>
-          </figure>
-          <figure class="quote glass reveal">
-            <blockquote>“Working with Droplab was a super professional experience. The designers understood my sensibilities and executed in a timely manner and to an excellent standard. I would definitely work with them again for any Shopify-related work.”</blockquote>
-            <figcaption><strong>Madani</strong><span>Founder, Keep Magazine</span></figcaption>
-          </figure>
-          <figure class="quote glass reveal">
-            <blockquote>“Droplab took a substantial part of my operations off my hands and was helpful at every sprint of development on my new website. Highly recommend for those looking into custom stores and going beyond the templates!”</blockquote>
-            <figcaption><strong>Gem</strong><span>Founder, Folded Inc.</span></figcaption>
-          </figure>
-        </div>
+    <!-- Words -->
+    <section class="words" aria-labelledby="words-title">
+      <div class="row-label mono">
+        <h2 id="words-title">Words</h2>
+        <span>(03)</span>
+      </div>
+      <div class="words__grid">
+        <figure>
+          <blockquote>“Droplab’s creative services have helped our brand connect to a highly energized audience instantly. Their attention to detail during the design process helped us build a carefully curated brand identity, leading to an uptick in attendee conversions.”</blockquote>
+          <figcaption class="mono">Roberto — Founder, Redeye</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Working with Droplab was a super professional experience. The designers understood my sensibilities and executed in a timely manner and to an excellent standard. I would definitely work with them again for any Shopify-related work.”</blockquote>
+          <figcaption class="mono">Madani — Founder, Keep Magazine</figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Droplab took a substantial part of my operations off my hands and was helpful at every sprint of development on my new website. Highly recommend for those looking into custom stores and going beyond the templates!”</blockquote>
+          <figcaption class="mono">Gem — Founder, Folded Inc.</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container faq">
-        <div class="section__head reveal">
-          <p class="label">05 — FAQ</p>
-          <h2>Good <em>questions.</em></h2>
-        </div>
-        <div class="faq__list reveal">
-          <details>
-            <summary>How much does a Shopify website cost?</summary>
-            <p>Projects vary depending on scope, features, and the level of customization required. Each store is tailored to the brand, so pricing reflects the complexity of the build, design requirements, and performance goals. After a quick discovery, we provide a clear, fixed quote with no surprises.</p>
-          </details>
-          <details>
-            <summary>How long does the process take?</summary>
-            <p>Most projects are completed within a few weeks, depending on the size of the store and how quickly content and feedback are provided. We follow a structured process to keep everything moving efficiently while maintaining a high standard of quality.</p>
-          </details>
-          <details>
-            <summary>What’s included in your Shopify design service?</summary>
-            <p>Everything needed to launch a high-performing Shopify store, including design, development, mobile optimization, and overall user experience. We focus on creating a site that not only looks strong visually but is also built to convert.</p>
-          </details>
-          <details>
-            <summary>Do you work with existing stores or only new builds?</summary>
-            <p>Both. Whether you're starting from scratch or looking to improve an existing site, we can step in and help elevate the design, performance, and overall user experience.</p>
-          </details>
-          <details>
-            <summary>What makes you different from other Shopify designers?</summary>
-            <p>We build stores designed to perform while still looking good. Every decision is made with user experience and conversion in mind, so the final result supports your brand while driving measurable results.</p>
-          </details>
-        </div>
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="row-label mono">
+        <h2 id="faq-title">FAQ</h2>
+        <span>(05)</span>
+      </div>
+      <div class="faq__list">
+        <details>
+          <summary><span class="mono faq__n">Q.01</span><span class="faq__q">How much does a Shopify website cost?</span></summary>
+          <p>Projects vary depending on scope, features, and the level of customization required. Each store is tailored to the brand, so pricing reflects the complexity of the build, design requirements, and performance goals. After a quick discovery, we provide a clear, fixed quote with no surprises.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.02</span><span class="faq__q">How long does the process take?</span></summary>
+          <p>Most projects are completed within a few weeks, depending on the size of the store and how quickly content and feedback are provided. We follow a structured process to keep everything moving efficiently while maintaining a high standard of quality.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.03</span><span class="faq__q">What’s included in your Shopify design service?</span></summary>
+          <p>Everything needed to launch a high-performing Shopify store, including design, development, mobile optimization, and overall user experience. We focus on creating a site that not only looks strong visually but is also built to convert.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.04</span><span class="faq__q">Do you work with existing stores or only new builds?</span></summary>
+          <p>Both. Whether you're starting from scratch or looking to improve an existing site, we can step in and help elevate the design, performance, and overall user experience.</p>
+        </details>
+        <details>
+          <summary><span class="mono faq__n">Q.05</span><span class="faq__q">What makes you different from other Shopify designers?</span></summary>
+          <p>We build stores designed to perform while still looking good. Every decision is made with user experience and conversion in mind, so the final result supports your brand while driving measurable results.</p>
+        </details>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact glass reveal">
-          <div class="contact__intro">
-            <p class="label">06 — Contact</p>
-            <h2>Want the most out of <em>your brand?</em></h2>
-            <p>Send us a message and we'll get back to you within 24 hours, or book a 30-minute call to talk through your project.</p>
-            <a class="btn btn--light" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
-            <ul class="contact__links">
-              <li><span>Email</span><a href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a></li>
-              <li><span>Instagram</span><a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">@droplab_studio</a></li>
-            </ul>
-          </div>
-
-          <form class="form" action="https://formspree.io/f/xqavakkv" method="POST">
-            <div class="form__row">
-              <label>Name *<input type="text" name="name" required autocomplete="name"></label>
-              <label>Email *<input type="email" name="email" required autocomplete="email"></label>
-            </div>
-            <label>Brand name<input type="text" name="brand" autocomplete="organization"></label>
-            <fieldset>
-              <legend>Interested in</legend>
-              <div class="chips">
-                <label class="chip"><input type="checkbox" name="services" value="Website build"><span>Website build</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Redesign"><span>Redesign</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Graphic / logo design"><span>Graphic / logo</span></label>
-                <label class="chip"><input type="checkbox" name="services" value="Consulting"><span>Consulting</span></label>
-              </div>
-            </fieldset>
-            <label>Message *<textarea name="message" rows="5" required></textarea></label>
-            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="btn btn--light btn--block" type="submit">Send message</button>
-            <p class="form__status" role="status" aria-live="polite"></p>
-          </form>
-        </div>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="row-label mono">
+        <h2 id="contact-title">Contact</h2>
+        <span>Reply within 24h</span>
+      </div>
+      <p class="contact__lead">Want the most out of your brand?</p>
+      <a class="contact__mail" href="mailto:contact.droplab@gmail.com">contact.droplab@gmail.com</a>
+      <div class="contact__actions">
+        <button class="chip chip--dark chip--lg" type="button" data-open-contact>Send a message</button>
+        <a class="chip chip--lg" href="https://calendly.com/contact-droplab/30min" target="_blank" rel="noopener">Book a 30-min call ↗</a>
+        <a class="chip chip--lg" href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram ↗</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p class="footer__big" aria-hidden="true">Droplab</p>
-      <div class="footer__row">
-        <span>© <span id="year">2026</span> Droplab Studio</span>
-        <nav aria-label="Footer">
-          <a href="mailto:contact.droplab@gmail.com">Email</a>
-          <a href="https://instagram.com/droplab_studio" target="_blank" rel="noopener">Instagram</a>
-          <a href="#top">Back to top ↑</a>
-        </nav>
-      </div>
-    </div>
+  <footer class="foot mono">
+    <span>© <span id="year">2026</span> Droplab Studio</span>
+    <span>Shopify design &amp; development</span>
+    <a href="#top">Top ↑</a>
   </footer>
+
+  <!-- Floating glass panels -->
+  <div class="dock">
+    <button class="glass dock__btn mono" type="button" data-open-contact>Get in touch</button>
+  </div>
+
+  <div class="panel glass" id="contact-panel" role="dialog" aria-modal="false" aria-labelledby="panel-title" hidden>
+    <div class="panel__head">
+      <h2 id="panel-title">Get in touch</h2>
+      <button class="panel__close mono" type="button" aria-label="Close" data-close-contact>Close</button>
+    </div>
+    <p class="panel__sub mono">Send a message and we'll get back to you within 24 hours.</p>
+    <form class="form" action="https://formspree.io/f/xqavakkv" method="POST">
+      <label><span class="mono">Name *</span><input type="text" name="name" required autocomplete="name"></label>
+      <label><span class="mono">Email *</span><input type="email" name="email" required autocomplete="email"></label>
+      <label><span class="mono">Brand</span><input type="text" name="brand" autocomplete="organization"></label>
+      <fieldset>
+        <legend class="mono">Interested in</legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="services" value="Website build"><span>Website build</span></label>
+          <label class="opt"><input type="checkbox" name="services" value="Redesign"><span>Redesign</span></label>
+          <label class="opt"><input type="checkbox" name="services" value="Graphic / logo design"><span>Graphic / logo</span></label>
+          <label class="opt"><input type="checkbox" name="services" value="Consulting"><span>Consulting</span></label>
+        </div>
+      </fieldset>
+      <label><span class="mono">Message *</span><textarea name="message" rows="4" required></textarea></label>
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="form__send mono" type="submit">Send</button>
+      <p class="form__status mono" role="status" aria-live="polite"></p>
+    </form>
+  </div>
 
   <script src="assets/js/main.js" defer></script>
 </body>
