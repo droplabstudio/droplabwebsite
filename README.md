@@ -27,11 +27,13 @@ assets/img/           ← logo, favicon and project screenshots
 
 Open `index.html` in a browser, or run `python3 -m http.server` in this folder and visit http://localhost:8000.
 
-## Publish free with GitHub Pages
+## Publishing (GitHub Pages)
 
-1. Merge this branch into `main`.
-2. In the repo on GitHub, go to **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, then **main** and **/ (root)**, and save.
-3. After a minute or two the site is live at `https://droplabstudio.github.io/droplabwebsite/`.
+The site is live at **https://droplabstudio.github.io/droplabwebsite/**.
+
+GitHub Pages publishes straight from this repo's default branch (`claude/ecstatic-goodall-vec5x7`, root folder). Every push to it rebuilds the site automatically, usually within a minute or two. You can watch each publish under the repo's **Actions** tab ("pages build and deployment").
+
+If a publish gets stuck or fails (for example during a GitHub outage, see githubstatus.com), push any new change or re-run the latest "pages build and deployment" run from the Actions tab.
 
 ## Point droplabstudio.com at it (when you're ready to leave Shopify)
 
