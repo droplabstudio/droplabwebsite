@@ -86,9 +86,10 @@ button { font: inherit; color: inherit; }
 .top.is-scrolled::before { opacity: 1; }
 .top__brand {
   grid-column: 1 / span 6; justify-self: start;
-  font-family: var(--mono); font-size: clamp(14px, 1.45vw, 21px); line-height: 1.18;
-  color: var(--ink);
+  line-height: 0;
 }
+.top__brand a { display: block; }
+.top__brand img { display: block; height: 30px; width: auto; }
 .top__nav { grid-column: 7 / -1; display: flex; gap: 4px; justify-content: flex-end; }
 
 /* ---------- Hero index ---------- */
@@ -378,7 +379,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .irow__items { grid-column: 2; }
   .irow::after { width: 4.5em; }
   .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .top__brand { font-size: 13px; white-space: nowrap; }
+  .top__brand img { height: 26px; }
   .top__nav { gap: 3px; flex-shrink: 0; }
   .top__nav .chip { padding: 0 7px; }
   .statement { text-indent: 0; }
@@ -392,11 +393,9 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 
 @media (max-width: 370px) {
   .top { gap: 6px; }
-  .top__brand { font-size: 12px; }
   .top__nav .chip { padding: 0 5px; font-size: 11px; }
 }
 @media (max-width: 330px) {
-  .top__brand { font-size: 11px; letter-spacing: -0.02em; }
   .top__nav { gap: 2px; }
   .top__nav .chip { padding: 0 4px; }
 }
