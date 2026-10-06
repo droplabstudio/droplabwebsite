@@ -178,6 +178,13 @@
   document.querySelectorAll('.hero, .contact').forEach((el) => io.observe(el));
 })();
 
+/* Footer "Top": scroll back to the very top (there's no #top element to jump to) */
+document.querySelectorAll('a[href="#top"]').forEach((a) => a.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0 });                       // html's scroll-behavior keeps it smooth
+  history.replaceState(null, '', location.pathname + location.search);
+}));
+
 /* Footer year */
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
