@@ -88,7 +88,8 @@ button { font: inherit; color: inherit; }
   grid-column: 1 / span 6; justify-self: start;
   line-height: 0;
 }
-.top__brand a { display: block; }
+.top__brand a { display: flex; align-items: center; gap: 12px; }
+.top__url { font-size: 13px; line-height: 1; color: var(--ink); white-space: nowrap; text-transform: none; }
 .top__brand img { display: block; height: 30px; width: auto; }
 .top__nav { grid-column: 7 / -1; display: flex; gap: 4px; justify-content: flex-end; }
 
@@ -380,6 +381,8 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .irow::after { width: 4.5em; }
   .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .top__brand img { height: 26px; }
+  .top__brand a { gap: 8px; }
+  .top__url { font-size: 11px; }
   .top__nav { gap: 3px; flex-shrink: 0; }
   .top__nav .chip { padding: 0 7px; }
   .statement { text-indent: 0; }
@@ -394,6 +397,10 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 @media (max-width: 370px) {
   .top { gap: 6px; }
   .top__nav .chip { padding: 0 5px; font-size: 11px; }
+}
+/* the smallest phones: no room for the domain beside the logo */
+@media (max-width: 350px) {
+  .top__url { display: none; }
 }
 @media (max-width: 330px) {
   .top__nav { gap: 2px; }
