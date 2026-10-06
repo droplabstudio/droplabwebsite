@@ -26,6 +26,22 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+/* Scrollbar: thin, white track, soft gray thumb that darkens on hover.
+   Firefox uses the standard properties; Chrome, Edge and Safari use ::-webkit-scrollbar. */
+html { scrollbar-width: thin; scrollbar-color: var(--faint) var(--bg); }
+@supports selector(::-webkit-scrollbar) {
+  html { scrollbar-width: auto; scrollbar-color: auto; }
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--faint); border-radius: 10px;
+  border: 3px solid var(--bg); background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--mid); background-clip: padding-box; }
+::-webkit-scrollbar-thumb:active { background: var(--ink); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: var(--bg); }
 body {
   margin: 0;
   background: var(--bg);
