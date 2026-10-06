@@ -206,8 +206,9 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .about__lead .statement { position: sticky; top: 72px; }
 /* desktop: stays hidden until it reaches its pinned spot under the header brand, then slides in */
 @media (min-width: 901px) {
-  .js .about__lead .statement { opacity: 0; transform: translateY(18px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
-  .js .about__lead .statement.is-pinned { opacity: 1; transform: none; }
+  /* faint until it pins, then fades to full ink */
+  .js .about__lead .statement { color: #e4e4e4; transition: color .6s var(--ease); }
+  .js .about__lead .statement.is-pinned { color: var(--ink); }
 }
 .statement__brand { display: none; }
 .about__services {
@@ -404,5 +405,5 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .js .focus__item, .js .project, .js .words figure { opacity: 1; transform: none; }
-  .js .about__lead .statement { opacity: 1; transform: none; }
+  .js .about__lead .statement { transition: none; }
 }
