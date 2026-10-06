@@ -111,18 +111,15 @@
    ---------------------------------------------------------- */
 (() => {
   const panel = document.getElementById('contact-panel');
-  const dock = document.querySelector('.dock');
   if (!panel) return;
 
   const open = () => {
     panel.hidden = false;
-    if (dock) dock.classList.add('is-hidden');
     const first = panel.querySelector('input');
     if (first) first.focus({ preventScroll: true });
   };
   const close = () => {
     panel.hidden = true;
-    if (dock) dock.classList.remove('is-hidden');
   };
 
   // the same buttons close the form again if it's already open
@@ -158,24 +155,13 @@
 })();
 
 /* ----------------------------------------------------------
-   Header: glass once scrolled.
-   Dock: hidden over the hero and contact sections.
+   Header: glass once scrolled
    ---------------------------------------------------------- */
 (() => {
   const top = document.querySelector('.top');
-  const dock = document.querySelector('.dock');
   const onScroll = () => top && top.classList.toggle('is-scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  if (!('IntersectionObserver' in window)) return;
-
-  if (!dock) return;
-  const hidden = new Set();
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => (e.isIntersecting ? hidden.add(e.target) : hidden.delete(e.target)));
-    dock.classList.toggle('is-away', hidden.size > 0);
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.hero, .contact').forEach((el) => io.observe(el));
 })();
 
 /* Footer "Top": scroll back to the very top (there's no #top element to jump to) */

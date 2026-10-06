@@ -293,14 +293,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
     0 24px 60px -24px rgba(17,17,17,.28);
 }
 
-.dock { position: fixed; right: var(--pad); bottom: var(--pad); z-index: 45; transition: opacity .3s, transform .3s var(--ease); }
-.dock.is-hidden, .js .dock.is-away { opacity: 0; transform: translateY(10px); pointer-events: none; }
-.dock__btn {
-  height: 34px; padding: 0 14px; border-radius: 8px; cursor: pointer;
-  display: inline-flex; align-items: center; gap: 8px;
-}
-.dock__btn::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #111111; box-shadow: 0 0 0 3px rgba(17,17,17,.12); }
-
 .panel {
   position: fixed; right: var(--pad); bottom: var(--pad); z-index: 50;
   width: min(360px, calc(100vw - var(--pad) * 2));
