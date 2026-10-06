@@ -29,7 +29,9 @@ Open `index.html` in a browser, or run `python3 -m http.server` in this folder a
 
 ## Publishing (GitHub Pages)
 
-The site is live at **https://droplabstudio.github.io/droplabwebsite/**.
+The site is live at **https://droplabstudio.com** (the `CNAME` file holds the custom domain).
+
+**Link previews** (iMessage, social): the title is the `<title>` / `og:title` in `index.html`, and the image is `assets/img/og.jpg` (1200×630). After changing the image, bump the `?v=` on its `og:image` URL so apps fetch the new one.
 
 GitHub Pages publishes straight from this repo's default branch (`claude/ecstatic-goodall-vec5x7`, root folder). Every push to it rebuilds the site automatically, usually within a minute or two. You can watch each publish under the repo's **Actions** tab ("pages build and deployment").
 
