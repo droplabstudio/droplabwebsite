@@ -117,7 +117,7 @@ button { font: inherit; color: inherit; }
   transform-origin: left center;
 }
 .irow::before { right: 0; height: 1px; }
-.irow::after { width: calc((100% - 11 * var(--gap)) / 12 + var(--gap) + 2em); height: 4px; top: -2px; }
+.irow::after { width: calc((100% - 11 * var(--gap)) / 12 + var(--gap) + 2em); height: 4px; top: -2px; background: var(--ink); }
 .irow__label { grid-column: 1 / span 5; justify-self: start; }
 .irow__items { grid-column: 7 / -1; list-style: none; margin: 0; padding: 0; }
 .irow__items button { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; text-transform: inherit; color: inherit; letter-spacing: inherit; }
