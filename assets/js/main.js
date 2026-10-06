@@ -53,7 +53,7 @@
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.focus__item, .project, .principles li, .words figure');
+  const els = document.querySelectorAll('.focus__item, .project, .words figure');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

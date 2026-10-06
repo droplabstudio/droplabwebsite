@@ -157,6 +157,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 }
 .row-label h2 { font-size: inherit; }
 .row-label span { color: var(--mid); }
+.row-label--soft { border-top-color: var(--mid); color: var(--mid); }
 
 /* ---------- Focus ---------- */
 .focus__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
@@ -225,18 +226,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   display: grid; gap: clamp(90px, 22vh, 220px); align-content: start;
 }
 .svc { display: grid; gap: 4px; }
-.studio__grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap);
-  margin-top: clamp(60px, 10vh, 120px);
-}
-.studio__block--wide { grid-column: 1 / -1; }
-.studio__block h3 { color: var(--mid); padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
-
-.principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
-.principles li { display: grid; gap: 6px; align-content: start; }
-.principles span { color: var(--mid); }
-.principles h4 { font-size: 14px; }
-.principles p { color: var(--mid); }
 
 /* ---------- Words ---------- */
 .words__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
@@ -364,7 +353,7 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .form__status.is-err { color: #555555; }
 
 /* ---------- Reveal ---------- */
-.js .focus__item, .js .project, .js .principles li, .js .words figure {
+.js .focus__item, .js .project, .js .words figure {
   opacity: 0; transform: translateY(16px);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
 }
@@ -384,7 +373,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .statement__brand { display: inline; }
   .about__services { padding: 0; margin-top: 56px; gap: 36px; }
   .svc .info__head { display: grid; }
-  .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .words__grid { grid-template-columns: 1fr; row-gap: 36px; }
   .focus__item { grid-column: 1 / -1; }
   .focus__grid { row-gap: 28px; }
@@ -403,7 +391,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .top__nav { gap: 3px; flex-shrink: 0; }
   .top__nav .chip { padding: 0 7px; }
   .statement { text-indent: 0; }
-  .principles { grid-template-columns: 1fr; }
   .faq summary { grid-template-columns: 1fr; gap: 2px; padding-right: 24px; }
   .faq__n, .faq__q { grid-column: auto; }
   .faq details p { margin-left: 0; }
@@ -425,6 +412,6 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
-  .js .focus__item, .js .project, .js .principles li, .js .words figure { opacity: 1; transform: none; }
+  .js .focus__item, .js .project, .js .words figure { opacity: 1; transform: none; }
   .js .about__lead .statement { opacity: 1; transform: none; }
 }

@@ -19,11 +19,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261006f">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261006g">
   <script>
     document.documentElement.classList.add('js');
     // deep links to a section (like /#work) skip the intro wait
-    if (/^#(focus|work|about|services|principles|words|faq|contact|p-[\w-]+)$/.test(location.hash)) document.documentElement.classList.add('skip-intro');
+    if (/^#(focus|work|about|services|words|faq|contact|p-[\w-]+)$/.test(location.hash)) document.documentElement.classList.add('skip-intro');
   </script>
 </head>
 <body>
@@ -70,7 +70,6 @@
           <ul class="irow__items">
             <li><a href="#about"><span class="sweep">Studio</span></a></li>
             <li><a href="#services"><span class="sweep">Services</span></a></li>
-            <li><a href="#principles"><span class="sweep">Principles</span></a></li>
             <li><a href="#words"><span class="sweep">Words</span></a></li>
             <li><a href="#faq"><span class="sweep">FAQ</span></a></li>
           </ul>
@@ -239,40 +238,21 @@
             <p class="info__row info__note"><span></span><span>Every decision made with user experience and conversion in mind.</span></p>
           </li>
           <li class="svc">
-            <p class="info__row info__head mono"><span>04</span><span>Mobile-first development</span></p>
-            <p class="info__row info__note"><span></span><span>Responsive builds designed for the phone first, where most of your customers shop.</span></p>
+            <p class="info__row info__head mono"><span>04</span><span>Mobile &amp; desktop optimization</span></p>
+            <p class="info__row info__note"><span></span><span>Stores that look and perform their best on every screen, from phone to desktop.</span></p>
           </li>
           <li class="svc">
             <p class="info__row info__head mono"><span>05</span><span>Performance optimization</span></p>
             <p class="info__row info__note"><span></span><span>Lightning-fast stores that keep customers moving toward checkout.</span></p>
           </li>
-          <li class="svc">
-            <p class="info__row info__head mono"><span>06</span><span>Graphic &amp; logo design</span></p>
-            <p class="info__row info__note"><span></span><span>Eye-catching visuals and memorable identities that make your brand stand out.</span></p>
-          </li>
-          <li class="svc">
-            <p class="info__row info__head mono"><span>07</span><span>Rollout planning</span></p>
-            <p class="info__row info__note"><span></span><span>Launch timelines and coordination so every release lands when it should.</span></p>
-          </li>
         </ol>
       </div>
 
-      <div class="studio__grid">
-        <div class="studio__block studio__block--wide" id="principles">
-          <h3 class="mono">Principles</h3>
-          <ol class="principles">
-            <li><span class="mono">I.</span><h4>Speed matters</h4><p>In the drop game, timing is everything. We move fast without compromising quality, so your launch hits when the hype is highest.</p></li>
-            <li><span class="mono">II.</span><h4>Details win</h4><p>We obsess over the small things that separate sold-out drops from missed opportunities.</p></li>
-            <li><span class="mono">III.</span><h4>True partnership</h4><p>Not just a service provider. An extension of your team, invested in your brand's growth.</p></li>
-            <li><span class="mono">IV.</span><h4>Built to scale</h4><p>Systems that grow with your brand, from first release to empire status.</p></li>
-          </ol>
-        </div>
-      </div>
     </section>
 
     <!-- Words -->
     <section class="words" id="words" aria-labelledby="words-title">
-      <div class="row-label mono">
+      <div class="row-label row-label--soft mono">
         <h2 id="words-title">Words</h2>
       </div>
       <div class="words__grid">
@@ -293,7 +273,7 @@
 
     <!-- FAQ -->
     <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="row-label mono">
+      <div class="row-label row-label--soft mono">
         <h2 id="faq-title">FAQ</h2>
       </div>
       <div class="faq__list">
@@ -381,6 +361,6 @@
     </form>
   </div>
 
-  <script src="assets/js/main.js?v=20261006f" defer></script>
+  <script src="assets/js/main.js?v=20261006g" defer></script>
 </body>
 </html>
