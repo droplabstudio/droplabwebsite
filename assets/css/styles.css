@@ -18,7 +18,7 @@
   --pad: clamp(12px, 1.6vw, 20px);
   --gap: clamp(12px, 1.6vw, 20px);
 
-  --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --ease: cubic-bezier(.2, .7, .2, 1);
