@@ -207,17 +207,25 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   line-height: 1.08;
   letter-spacing: -0.03em;
   max-width: 22ch;
-  text-indent: 25%;
 }
+
+/* statement sticks under the header brand so it reads "Droplab Studio / is a digital lab…",
+   while the services scroll past on the right (like the Work section) */
+.about__split { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+.about__lead { grid-column: 1 / span 7; }
+.about__lead .statement { position: sticky; top: 72px; }
+.statement__brand { display: none; }
+.about__services {
+  grid-column: 9 / -1; list-style: none; margin: 0; padding: 0 0 30vh;
+  display: grid; gap: clamp(90px, 22vh, 220px); align-content: start;
+}
+.svc { display: grid; gap: 4px; }
 .studio__grid {
   display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap);
   margin-top: clamp(60px, 10vh, 120px);
 }
-.studio__block { grid-column: 1 / span 3; }
-.studio__block--wide { grid-column: 4 / -1; }
+.studio__block--wide { grid-column: 1 / -1; }
 .studio__block h3 { color: var(--mid); padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
-.list { list-style: none; margin: 0; padding: 0; }
-.list li { padding: 5px 0; border-bottom: 1px solid var(--line); }
 
 .principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
 .principles li { display: grid; gap: 6px; align-content: start; }
@@ -366,8 +374,11 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .info__head { display: none; }
   .info { margin-top: 10px; }
   .project__frame, .info { grid-column: 2 / -1; }
-  .studio__block, .studio__block--wide { grid-column: 1 / -1; }
-  .studio__block--wide { margin-top: 40px; }
+  .about__lead, .about__services { grid-column: 1 / -1; }
+  .about__lead .statement { position: static; }
+  .statement__brand { display: inline; }
+  .about__services { padding: 0; margin-top: 56px; gap: 36px; }
+  .svc .info__head { display: grid; }
   .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .words__grid { grid-template-columns: 1fr; row-gap: 36px; }
   .focus__item { grid-column: 1 / -1; }
