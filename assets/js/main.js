@@ -82,7 +82,8 @@
     if (dock) dock.classList.remove('is-hidden');
   };
 
-  document.querySelectorAll('[data-open-contact]').forEach((b) => b.addEventListener('click', open));
+  // the same buttons close the form again if it's already open
+  document.querySelectorAll('[data-open-contact]').forEach((b) => b.addEventListener('click', () => (panel.hidden ? open() : close())));
   document.querySelectorAll('[data-close-contact]').forEach((b) => b.addEventListener('click', close));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
 
