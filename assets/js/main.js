@@ -30,10 +30,30 @@
 })();
 
 /* ----------------------------------------------------------
+   About statement: reads "Droplab Studio / is a digital lab…" only once it
+   is pinned under the header brand, so it shows from that point on
+   ---------------------------------------------------------- */
+(() => {
+  const st = document.querySelector('.about__lead .statement');
+  if (!st) return;
+  let queued = false;
+  const check = () => {
+    queued = false;
+    const pinTop = parseFloat(getComputedStyle(st).top) || 0;
+    // measure the container: the statement's own box moves while it slides in
+    st.classList.toggle('is-pinned', st.parentElement.getBoundingClientRect().top <= pinTop + 1);
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(check); } };
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  check();
+})();
+
+/* ----------------------------------------------------------
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
-  const els = document.querySelectorAll('.focus__item, .project, .statement, .principles li, .words figure');
+  const els = document.querySelectorAll('.focus__item, .project, .principles li, .words figure');
   if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('is-in')); return; }
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
