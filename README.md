@@ -13,7 +13,7 @@ assets/img/           ← logo, favicon and project screenshots
 
 ## Common edits
 
-**Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the name, link and image. Add a matching `<li>` to the project index (`.work__index`) using the same `id`. Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
+**Add a project:** in `index.html`, copy one `<article class="project">…</article>` block inside `.work__list`, then give it a new `id` and change the name, link and image. Add a matching link to the hero's Work row using the same `id`. The first row (3 on desktop, 4 on phones) shows by default; the rest appear under "View all". Put the screenshot in `assets/img/` (about 2000px wide, saved as JPG).
 
 **Hero index / intro:** the rows (Focus, Work, About, Contact) are in the `hero` section of `index.html`. Wrap any new text in `<span class="sweep">` so it fades in with the rest. The whole intro (line timing, hero fade, and when the rest of the page appears) is plain CSS in the "Intro sequence" block of `assets/css/styles.css`.
 

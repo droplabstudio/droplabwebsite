@@ -12,21 +12,31 @@
 })();
 
 /* ----------------------------------------------------------
-   Work index: highlight the project in view
+   Work: first row only, "View all" expands the rest.
+   Links to a hidden project (like the hero's) open the list first.
    ---------------------------------------------------------- */
 (() => {
-  const links = [...document.querySelectorAll('.work__index a')];
-  if (!links.length || !('IntersectionObserver' in window)) return;
-  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      links.forEach((a) => a.classList.remove('is-active'));
-      const link = byId.get(entry.target.id);
-      if (link) link.classList.add('is-active');
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('.project').forEach((p) => io.observe(p));
+  const work = document.querySelector('.work');
+  const btn = document.querySelector('.work__toggle');
+  if (!work || !btn) return;
+  const set = (open) => {
+    work.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Show less' : 'View all';
+  };
+  btn.hidden = false;
+  btn.addEventListener('click', () => {
+    const open = !work.classList.contains('is-open');
+    set(open);
+    if (!open) work.scrollIntoView({ block: 'start' });
+  });
+  const reveal = (hash) => {
+    const el = /^#p-[\w-]+$/.test(hash) && document.querySelector(hash);
+    if (el && el.offsetParent === null) { set(true); el.scrollIntoView(); }
+  };
+  document.querySelectorAll('a[href^="#p-"]').forEach((a) => a.addEventListener('click', () => reveal(a.getAttribute('href'))));
+  window.addEventListener('hashchange', () => reveal(location.hash));
+  reveal(location.hash);
 })();
 
 /* ----------------------------------------------------------

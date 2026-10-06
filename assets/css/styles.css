@@ -166,21 +166,10 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .focus__item p { color: #555; max-width: 38ch; }
 
 /* ---------- Work ---------- */
-.work__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); }
-.work__index { grid-column: 1 / span 3; }
-.work__index ol { position: sticky; top: 64px; list-style: none; margin: 0; padding: 0; }
-.work__index a {
-  display: flex; gap: 14px; padding: 5px 0;
-  color: var(--faint);
-  transition: color .25s;
-}
-.work__index a span { color: inherit; }
-.work__index a:hover, .work__index a.is-active { color: var(--ink); }
-.work__index a.is-active::after { content: "←"; margin-left: auto; }
-
-.work__list { grid-column: 9 / -1; display: grid; gap: clamp(90px, 18vh, 200px); padding-bottom: 10vh; }
-
-.project__name { display: none; }
+.work__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px var(--gap); }
+/* collapsed: one row of three; "View all" opens the rest (no JS: everything shows) */
+.js .work:not(.is-open) .project:nth-child(n+4) { display: none; }
+.work__more { margin-top: 40px; }
 
 .project__frame {
   display: block; overflow: hidden;
@@ -361,13 +350,14 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .work__index { display: none; }
-  .work__list { grid-column: 1 / -1; }
-  .project { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 var(--gap); align-items: start; }
-  .project__name { display: grid; gap: 4px; grid-column: 1; font-size: 11px; position: sticky; top: 64px; }
-  .info__head { display: none; }
-  .info { margin-top: 10px; }
-  .project__frame, .info { grid-column: 2 / -1; }
+  /* two columns, two rows collapsed */
+  .work__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  .js .work:not(.is-open) .project:nth-child(4) { display: block; }
+  .js .work:not(.is-open) .project:nth-child(n+5) { display: none; }
+  .work__more { margin-top: 28px; }
+  .info { margin-top: 10px; gap: 2px; }
+  .project .info__row { grid-template-columns: auto minmax(0, 1fr); gap: 8px; }
+  .project .info__row:not(.info__head) > :first-child, .project .info__note { display: none; }
   .about__lead, .about__services { grid-column: 1 / -1; }
   .about__lead .statement { position: static; }
   .statement__brand { display: inline; }

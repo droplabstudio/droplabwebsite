@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261006l">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261006m">
   <script>
     document.documentElement.classList.add('js');
     // deep links to a section (like /#work) skip the intro wait
@@ -111,100 +111,85 @@
     <!-- Work -->
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="row-label mono">
-        <h2 id="work-title">Selected work</h2>
+        <h2 id="work-title">Work</h2>
       </div>
 
-      <div class="work__grid">
-        <aside class="work__index" aria-label="Project index">
-          <ol class="mono">
-            <li><a href="#p-midnight-special"><span>01</span>Midnight Special</a></li>
-            <li><a href="#p-reaper-rags"><span>02</span>Reaper Rags</a></li>
-            <li><a href="#p-gloe"><span>03</span>Gloe</a></li>
-            <li><a href="#p-crystal-tears"><span>04</span>Crystal Tears</a></li>
-            <li><a href="#p-rainier-daze"><span>05</span>Rainier Daze Seattle</a></li>
-            <li><a href="#p-vuota"><span>06</span>Vuota</a></li>
-          </ol>
-        </aside>
+      <div class="work__list" id="work-list">
+        <article class="project" id="p-midnight-special">
+          <a class="project__frame" href="https://midnightspecial.io/" target="_blank" rel="noopener">
+            <img src="assets/img/midnight-special.jpg" alt="Midnight Special website homepage" loading="lazy" width="2000" height="858">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>01</span><span>Midnight Special</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Custom product page</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://midnightspecial.io/" target="_blank" rel="noopener">midnightspecial.io&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>Most of the focus went into the product page, making it very tech-focused with custom gauges, wash instructions, materials, and more.</span></p>
+          </div>
+        </article>
 
-        <div class="work__list">
-          <article class="project" id="p-midnight-special">
-            <h3 class="project__name mono"><span>01</span>Midnight Special</h3>
-            <a class="project__frame" href="https://midnightspecial.io/" target="_blank" rel="noopener">
-              <img src="assets/img/midnight-special.jpg" alt="Midnight Special website homepage" loading="lazy" width="2000" height="858">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>01</span><span>Midnight Special</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Custom product page</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://midnightspecial.io/" target="_blank" rel="noopener">midnightspecial.io&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>Most of the focus went into the product page, making it very tech-focused with custom gauges, wash instructions, materials, and more.</span></p>
-            </div>
-          </article>
+        <article class="project" id="p-reaper-rags">
+          <a class="project__frame" href="https://reaperrags.com/" target="_blank" rel="noopener">
+            <img src="assets/img/reaper-rags.jpg" alt="Reaper Rags website homepage" loading="lazy" width="2000" height="881">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>02</span><span>Reaper Rags</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://reaperrags.com/" target="_blank" rel="noopener">reaperrags.com&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>A custom build tailored to the brand's dark aesthetic, with custom elements like flame buttons and pixelated icons while still optimizing for conversion.</span></p>
+          </div>
+        </article>
 
-          <article class="project" id="p-reaper-rags">
-            <h3 class="project__name mono"><span>02</span>Reaper Rags</h3>
-            <a class="project__frame" href="https://reaperrags.com/" target="_blank" rel="noopener">
-              <img src="assets/img/reaper-rags.jpg" alt="Reaper Rags website homepage" loading="lazy" width="2000" height="881">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>02</span><span>Reaper Rags</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://reaperrags.com/" target="_blank" rel="noopener">reaperrags.com&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>A custom build tailored to the brand's dark aesthetic, with custom elements like flame buttons and pixelated icons while still optimizing for conversion.</span></p>
-            </div>
-          </article>
+        <article class="project" id="p-gloe">
+          <a class="project__frame" href="https://gloeproduct.com/" target="_blank" rel="noopener">
+            <img src="assets/img/gloe.jpg" alt="Gloe website homepage" loading="lazy" width="2000" height="912">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>03</span><span>Gloe</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Full rebuild</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://gloeproduct.com/" target="_blank" rel="noopener">gloeproduct.com&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>A full rebuild that matches the style of the brand while maintaining all the conversion elements.</span></p>
+          </div>
+        </article>
 
-          <article class="project" id="p-gloe">
-            <h3 class="project__name mono"><span>03</span>Gloe</h3>
-            <a class="project__frame" href="https://gloeproduct.com/" target="_blank" rel="noopener">
-              <img src="assets/img/gloe.jpg" alt="Gloe website homepage" loading="lazy" width="2000" height="912">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>03</span><span>Gloe</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Full rebuild</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://gloeproduct.com/" target="_blank" rel="noopener">gloeproduct.com&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>A full rebuild that matches the style of the brand while maintaining all the conversion elements.</span></p>
-            </div>
-          </article>
+        <article class="project" id="p-crystal-tears">
+          <a class="project__frame" href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">
+            <img src="assets/img/crystal-tears.jpg" alt="Crystal Tears website best sellers grid" loading="lazy" width="2000" height="1087">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>04</span><span>Crystal Tears</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">crystaltearsclo.com&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>Custom vertical grids to be more model-based, with a fully integrated quick-add function.</span></p>
+          </div>
+        </article>
 
-          <article class="project" id="p-crystal-tears">
-            <h3 class="project__name mono"><span>04</span>Crystal Tears</h3>
-            <a class="project__frame" href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">
-              <img src="assets/img/crystal-tears.jpg" alt="Crystal Tears website best sellers grid" loading="lazy" width="2000" height="1087">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>04</span><span>Crystal Tears</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://www.crystaltearsclo.com" target="_blank" rel="noopener">crystaltearsclo.com&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>Custom vertical grids to be more model-based, with a fully integrated quick-add function.</span></p>
-            </div>
-          </article>
+        <article class="project" id="p-rainier-daze">
+          <a class="project__frame" href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">
+            <img src="assets/img/rainier-daze.jpg" alt="Rainier Daze Seattle website styled as Windows 95" loading="lazy" width="2000" height="1030">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>05</span><span>Rainier Daze Seattle</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">rainierdazeseattle.com&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>Recreates Windows 95 for a fully immersive experience, including background noise, a boot-up screen, and more.</span></p>
+          </div>
+        </article>
 
-          <article class="project" id="p-rainier-daze">
-            <h3 class="project__name mono"><span>05</span>Rainier Daze Seattle</h3>
-            <a class="project__frame" href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">
-              <img src="assets/img/rainier-daze.jpg" alt="Rainier Daze Seattle website styled as Windows 95" loading="lazy" width="2000" height="1030">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>05</span><span>Rainier Daze Seattle</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Full build</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://rainierdazeseattle.com/" target="_blank" rel="noopener">rainierdazeseattle.com&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>Recreates Windows 95 for a fully immersive experience, including background noise, a boot-up screen, and more.</span></p>
-            </div>
-          </article>
+        <article class="project" id="p-vuota">
+          <a class="project__frame" href="https://www.vuota.us" target="_blank" rel="noopener">
+            <img src="assets/img/vuota.jpg" alt="Vuota website homepage" loading="lazy" width="2000" height="1047">
+          </a>
+          <div class="info">
+            <p class="info__row info__head mono"><span>06</span><span>Vuota</span></p>
+            <p class="info__row mono"><span>Scope</span><span>Redesign</span></p>
+            <p class="info__row mono"><span>Site</span><a href="https://www.vuota.us" target="_blank" rel="noopener">vuota.us&nbsp;↗</a></p>
+            <p class="info__row info__note"><span></span><span>Transformed their site into a clean, straightforward look that increased conversions by 1.5%.</span></p>
+          </div>
+        </article>
+      </div>
 
-          <article class="project" id="p-vuota">
-            <h3 class="project__name mono"><span>06</span>Vuota</h3>
-            <a class="project__frame" href="https://www.vuota.us" target="_blank" rel="noopener">
-              <img src="assets/img/vuota.jpg" alt="Vuota website homepage" loading="lazy" width="2000" height="1047">
-            </a>
-            <div class="info">
-              <p class="info__row info__head mono"><span>06</span><span>Vuota</span></p>
-              <p class="info__row mono"><span>Scope</span><span>Redesign</span></p>
-              <p class="info__row mono"><span>Site</span><a href="https://www.vuota.us" target="_blank" rel="noopener">vuota.us&nbsp;↗</a></p>
-              <p class="info__row info__note"><span></span><span>Transformed their site into a clean, straightforward look that increased conversions by 1.5%.</span></p>
-            </div>
-          </article>
-        </div>
+      <div class="work__more">
+        <button class="chip work__toggle" type="button" aria-expanded="false" aria-controls="work-list" hidden>View all</button>
       </div>
     </section>
 
@@ -361,6 +346,6 @@
     </form>
   </div>
 
-  <script src="assets/js/main.js?v=20261006l" defer></script>
+  <script src="assets/js/main.js?v=20261006m" defer></script>
 </body>
 </html>
