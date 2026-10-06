@@ -60,6 +60,39 @@
 })();
 
 /* ----------------------------------------------------------
+   FAQ: open and close each answer smoothly (height + fade)
+   ---------------------------------------------------------- */
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const ease = 'cubic-bezier(.2, .7, .2, 1)';
+  document.querySelectorAll('.faq details').forEach((d) => {
+    const summary = d.querySelector('summary');
+    const answer = d.querySelector('p');
+    if (!summary || !answer || !d.animate) return;
+    let anim = null;
+    let opening = d.open;
+    summary.addEventListener('click', (e) => {
+      if (reduce.matches) return;
+      e.preventDefault();
+      const from = d.offsetHeight;          // mid-animation height if interrupted
+      if (anim) anim.cancel();
+      opening = !opening;
+      d.open = true;
+      const border = d.offsetHeight - d.clientHeight;
+      const to = opening ? d.offsetHeight : summary.offsetHeight + border;
+      d.style.overflow = 'hidden';
+      anim = d.animate({ height: [`${from}px`, `${to}px`] }, { duration: 450, easing: ease });
+      answer.animate({ opacity: opening ? [0, 1] : [1, 0] }, { duration: opening ? 450 : 250, easing: ease, fill: 'none' });
+      anim.onfinish = () => {
+        anim = null;
+        d.open = opening;
+        d.style.overflow = '';
+      };
+    });
+  });
+})();
+
+/* ----------------------------------------------------------
    Reveal on scroll
    ---------------------------------------------------------- */
 (() => {
