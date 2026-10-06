@@ -159,18 +159,9 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
 .row-label span { color: var(--mid); }
 
 /* ---------- Focus ---------- */
-/* three square cells sharing hairline borders */
-.focus__grid {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--faint); border-left: 1px solid var(--faint);
-}
-.focus__item {
-  aspect-ratio: 1 / 1;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
-  padding: clamp(16px, 1.8vw, 26px);
-  border-right: 1px solid var(--faint); border-bottom: 1px solid var(--faint);
-}
-.focus__item h3 { color: var(--ink); font-size: clamp(14px, 1.2vw, 17px); line-height: 1.2; }
+.focus__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+.focus__item { grid-column: span 4; display: grid; gap: 10px; align-content: start; }
+.focus__item h3 { color: var(--ink); }
 .focus__item p { color: #555; max-width: 38ch; }
 
 /* ---------- Work ---------- */
@@ -379,14 +370,14 @@ main > section { padding: clamp(80px, 14vh, 160px) var(--pad) 0; }
   .studio__block--wide { margin-top: 40px; }
   .principles { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .words__grid { grid-template-columns: 1fr; row-gap: 36px; }
+  .focus__item { grid-column: 1 / -1; }
+  .focus__grid { row-gap: 28px; }
 
 }
 
 @media (max-width: 640px) {
   .hero { font-size: 13px; min-height: 0; }
   main > .focus { padding-top: 56px; }
-  .focus__grid { grid-template-columns: 1fr; }
-  .focus__item { aspect-ratio: auto; min-height: 220px; }
   .irow { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
   .irow__label { grid-column: 1; }
   .irow__items { grid-column: 2; }
